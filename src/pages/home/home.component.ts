@@ -44,16 +44,20 @@ import { ImageService } from '../../services/image.service';
           </div>
           
           <!-- Organic Image -->
-          <div class="flex-1 w-full relative">
+          <div class="w-full lg:flex-1 relative mt-8 lg:mt-0">
             <div class="absolute inset-0 bg-primary/20 blur-2xl transform translate-x-4 translate-y-4 rounded-[30%_70%_70%_30%_/_30%_30%_70%_70%] opacity-50"></div>
-            <div class="relative w-full aspect-[1/1] lg:aspect-[4/3]">
-              <div class="w-full h-full relative overflow-hidden shadow-2xl" 
+            
+            <!-- Padding Hack Container for Aspect Ratio -->
+            <div class="relative w-full pb-[100%] lg:pb-[75%]">
+              <div class="absolute inset-0 w-full h-full overflow-hidden shadow-2xl" 
                    style="border-radius: 54% 46% 25% 75% / 55% 44% 56% 45%; box-shadow: -15px 15px 40px rgba(74, 60, 49, 0.15);">
                 <div class="absolute inset-0 bg-[#C69C55] opacity-10 mix-blend-overlay z-10 pointer-events-none"></div>
-                <img [ngSrc]="images.get('hero')" fill priority class="w-full h-full object-cover transition-transform duration-1000 hover:scale-105" 
+                <img [ngSrc]="images.get('hero')" fill priority class="object-cover transition-transform duration-1000 hover:scale-105" 
                      alt="Warm interior apartment in Stockholm" 
                      style="filter: sepia(0.15) saturate(1.1);">
               </div>
+              
+              <!-- Floating Icon (Hidden on mobile) -->
               <div class="absolute -bottom-6 -left-6 bg-white dark:bg-surface-dark p-4 rounded-full shadow-xl border border-primary/10 dark:border-gray-700 hidden lg:block animate-bounce" style="animation-duration: 3s;">
                 <div class="bg-primary/10 rounded-full p-3 text-primary">
                   <span class="material-symbols-outlined text-3xl">home</span>
@@ -94,7 +98,7 @@ import { ImageService } from '../../services/image.service';
             </p>
             <span class="text-primary text-sm font-bold flex items-center gap-1 group-hover:gap-2 transition-all">Läs mer <span class="material-symbols-outlined text-sm">arrow_forward</span></span>
           </a>
-          <!-- Card 2: Sälja Dödsbo (Updated Title) -->
+          <!-- Card 2: Sälja Dödsbo -->
           <a routerLink="/tjanster/salja-dodsbo" class="bg-background-light dark:bg-surface-dark rounded-xl p-8 border border-[#F0EBE5] dark:border-gray-800 hover:border-primary/30 transition-all group hover:-translate-y-1 duration-300 shadow-sm hover:shadow-md cursor-pointer">
             <div class="size-12 bg-primary/10 rounded-full flex items-center justify-center text-primary mb-6 group-hover:bg-primary group-hover:text-white transition-colors">
               <span class="material-symbols-outlined text-2xl">sell</span>
@@ -123,182 +127,21 @@ import { ImageService } from '../../services/image.service';
             </div>
             <h4 class="text-xl font-bold text-text-main dark:text-white mb-3">Sanering</h4>
             <p class="text-text-sub dark:text-gray-400 text-sm leading-relaxed mb-4">
-               Professionell sanering och luktborttagning vid behov.
+               Luktsanering och grovstädning vid svåra förhållanden. Vi hanterar det med diskretion.
             </p>
             <span class="text-primary text-sm font-bold flex items-center gap-1 group-hover:gap-2 transition-all">Läs mer <span class="material-symbols-outlined text-sm">arrow_forward</span></span>
           </a>
         </div>
-      </div>
-    </section>
 
-    <!-- Process Section -->
-    <section class="py-20 bg-background-light dark:bg-background-dark relative" id="process">
-      <div class="absolute inset-0 opacity-[0.03] bg-[radial-gradient(#4A3C31_1px,transparent_1px)] [background-size:16px_16px]"></div>
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div class="text-center max-w-3xl mx-auto mb-16">
-          <h2 class="text-primary font-bold tracking-widest uppercase text-xs mb-3 border-b border-primary/20 inline-block pb-1">Processen</h2>
-          <h3 class="text-3xl md:text-4xl font-serif text-text-main dark:text-white mb-4">Så går det till</h3>
-          <p class="text-text-sub dark:text-gray-300 text-lg font-light">Från första kontakten till avslutad städning – vi gör det enkelt för dig.</p>
+        <!-- Contact Form Section (Integrated) -->
+        <div class="mt-24 max-w-4xl mx-auto" id="kontakt">
+           <div class="text-center mb-10">
+              <h3 class="text-2xl font-bold text-text-main dark:text-white">Kontakta oss för en kostnadsfri offert</h3>
+              <p class="text-text-sub dark:text-gray-300 mt-2">Vi återkommer oftast inom 2 timmar.</p>
+           </div>
+           <app-contact-form />
         </div>
-        
-        <div class="relative">
-          <div class="hidden md:block absolute top-[2.5rem] left-0 w-full h-px bg-[#D8D0C5] dark:bg-gray-700 z-0"></div>
-          <div class="grid grid-cols-1 md:grid-cols-4 gap-8 relative z-10">
-            <!-- Step 1 -->
-            <div class="text-center group">
-              <div class="size-20 mx-auto bg-primary text-white rounded-full flex items-center justify-center text-2xl font-serif font-bold mb-6 shadow-lg ring-4 ring-white dark:ring-background-dark group-hover:scale-110 transition-transform relative z-10">1</div>
-              <h4 class="text-lg font-bold text-text-main dark:text-white mb-2">Hembesök</h4>
-              <p class="text-text-sub dark:text-gray-400 text-sm px-4">Vi kommer ut på ett kostnadsfritt besök för att titta på omfattningen.</p>
-            </div>
-            <!-- Step 2 -->
-            <div class="text-center group">
-              <div class="size-20 mx-auto bg-white dark:bg-surface-dark border-2 border-primary text-primary rounded-full flex items-center justify-center text-2xl font-serif font-bold mb-6 shadow-md ring-4 ring-background-light dark:ring-background-dark group-hover:bg-primary group-hover:text-white transition-colors relative z-10">2</div>
-              <h4 class="text-lg font-bold text-text-main dark:text-white mb-2">Offert</h4>
-              <p class="text-text-sub dark:text-gray-400 text-sm px-4">Du får en tydlig offert med fast pris där eventuellt uppköp är avdraget.</p>
-            </div>
-            <!-- Step 3 -->
-            <div class="text-center group">
-              <div class="size-20 mx-auto bg-white dark:bg-surface-dark border-2 border-primary text-primary rounded-full flex items-center justify-center text-2xl font-serif font-bold mb-6 shadow-md ring-4 ring-background-light dark:ring-background-dark group-hover:bg-primary group-hover:text-white transition-colors relative z-10">3</div>
-              <h4 class="text-lg font-bold text-text-main dark:text-white mb-2">Utförande</h4>
-              <p class="text-text-sub dark:text-gray-400 text-sm px-4">Vi tömmer, sorterar och städar enligt överenskommelse på utsatt tid.</p>
-            </div>
-            <!-- Step 4 -->
-            <div class="text-center group">
-              <div class="size-20 mx-auto bg-white dark:bg-surface-dark border-2 border-primary text-primary rounded-full flex items-center justify-center text-2xl font-serif font-bold mb-6 shadow-md ring-4 ring-background-light dark:ring-background-dark group-hover:bg-primary group-hover:text-white transition-colors relative z-10">4</div>
-              <h4 class="text-lg font-bold text-text-main dark:text-white mb-2">Klart!</h4>
-              <p class="text-text-sub dark:text-gray-400 text-sm px-4">Nycklarna återlämnas och ni får ett intyg på städgarantin.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
 
-    <!-- FAQ / Info Section -->
-    <section class="py-20 bg-white dark:bg-background-dark border-y border-[#F0EBE5] dark:border-gray-800" id="faq">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex flex-col lg:flex-row gap-12 items-start">
-          <div class="lg:w-1/2">
-            <div class="sticky top-24">
-              <h2 class="text-primary font-bold tracking-widest uppercase text-xs mb-3">Viktig information</h2>
-              <h3 class="text-3xl font-serif text-text-main dark:text-white mb-6">Att tänka på vid dödsbohantering</h3>
-              <p class="text-text-sub dark:text-gray-300 mb-8 leading-relaxed font-light text-lg">
-                Att hantera ett dödsbo innebär många praktiska och juridiska frågor. Vi på Dödsbopartner AB hjälper dig att navigera genom processen, men här är några begrepp som är bra att känna till.
-              </p>
-              <div class="relative rounded-lg overflow-hidden shadow-lg aspect-video mb-6 border border-[#F0EBE5] dark:border-gray-800">
-                <img [ngSrc]="images.get('documents')" fill class="object-cover grayscale hover:grayscale-0 transition-all duration-700" alt="Documents on a table">
-              </div>
-            </div>
-          </div>
-          
-          <div class="lg:w-1/2 flex flex-col gap-6">
-            <div class="bg-background-light dark:bg-surface-dark rounded-xl p-8 border border-[#F0EBE5] dark:border-gray-800 shadow-sm hover:border-primary/20 transition-colors">
-              <h4 class="text-lg font-bold text-text-main dark:text-white mb-3 flex items-center gap-3">
-                <span class="material-symbols-outlined text-primary">gavel</span>
-                Vad innebär en bouppteckning?
-              </h4>
-              <p class="text-text-sub dark:text-gray-400 text-sm leading-relaxed">
-                Bouppteckningen är en legitimationshandling för dödsboet. Den visar vem som har rätt att företräda boet och vilka tillgångar och skulder som finns. Det är ett viktigt dokument som krävs för att avsluta bankkonton och sälja fastigheter. Vi kan guida er till rätt partners om ni behöver juridisk hjälp.
-              </p>
-            </div>
-            
-            <div class="bg-background-light dark:bg-surface-dark rounded-xl p-8 border border-[#F0EBE5] dark:border-gray-800 shadow-sm hover:border-primary/20 transition-colors">
-              <h4 class="text-lg font-bold text-text-main dark:text-white mb-3 flex items-center gap-3">
-                <span class="material-symbols-outlined text-primary">assignment_ind</span>
-                Behövs en fullmakt?
-              </h4>
-              <p class="text-text-sub dark:text-gray-400 text-sm leading-relaxed">
-                Om ni är flera dödsbodelägare men bara en ska sköta kontakten med oss, behövs ofta en fullmakt. Detta säkerställer att tömning och försäljning sker korrekt enligt alla delägares vilja. Vi tillhandahåller enkla mallar för detta vid behov.
-              </p>
-            </div>
-            
-            <div class="bg-background-light dark:bg-surface-dark rounded-xl p-8 border border-[#F0EBE5] dark:border-gray-800 shadow-sm hover:border-primary/20 transition-colors">
-              <h4 class="text-lg font-bold text-text-main dark:text-white mb-3 flex items-center gap-3">
-                <span class="material-symbols-outlined text-primary">recycling</span>
-                Miljö & Hållbarhet
-              </h4>
-              <p class="text-text-sub dark:text-gray-400 text-sm leading-relaxed">
-                Vi strävar efter att så lite som möjligt ska hamna på tippen. Kläder, möbler och husgeråd som inte köps upp skänks i första hand till våra samarbetspartners inom välgörenhet. Det som återstår källsorteras noggrant.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Charity Section -->
-    <section class="bg-primary-light/30 dark:bg-surface-dark/50 py-16 border-b border-[#F0EBE5] dark:border-gray-800">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex flex-col md:flex-row items-center justify-between gap-8">
-          <div class="flex-1">
-            <h2 class="text-2xl md:text-3xl font-serif text-text-main dark:text-white mb-4">Välgörenhet & Återvinning</h2>
-            <p class="text-text-sub dark:text-gray-300 text-lg mb-8 font-light max-w-xl">
-              Dina saker kan göra nytta för andra. Vi samarbetar med flera hjälporganisationer i Stockholm för att säkerställa att funktionsdugliga föremål får ett nytt liv.
-            </p>
-            <div class="flex flex-wrap gap-4">
-              <div class="bg-white dark:bg-background-dark px-5 py-3 rounded-full text-sm font-semibold text-text-main dark:text-white shadow-sm border border-[#EBE5DE] dark:border-gray-700 flex items-center gap-2">
-                <span class="material-symbols-outlined text-primary text-sm">volunteer_activism</span> Stadsmissionen
-              </div>
-              <div class="bg-white dark:bg-background-dark px-5 py-3 rounded-full text-sm font-semibold text-text-main dark:text-white shadow-sm border border-[#EBE5DE] dark:border-gray-700 flex items-center gap-2">
-                <span class="material-symbols-outlined text-primary text-sm">volunteer_activism</span> Röda Korset
-              </div>
-              <div class="bg-white dark:bg-background-dark px-5 py-3 rounded-full text-sm font-semibold text-text-main dark:text-white shadow-sm border border-[#EBE5DE] dark:border-gray-700 flex items-center gap-2">
-                <span class="material-symbols-outlined text-primary text-sm">eco</span> 100% Återvinning
-              </div>
-            </div>
-          </div>
-          <div class="w-full md:w-1/3 flex justify-center">
-            <span class="material-symbols-outlined text-[140px] text-primary/30">spa</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section class="py-20 bg-white dark:bg-background-dark scroll-mt-24" id="kontakt">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="max-w-5xl mx-auto bg-white dark:bg-surface-dark rounded-2xl shadow-2xl overflow-hidden border border-[#F0EBE5] dark:border-gray-800 flex flex-col md:flex-row">
-          
-          <!-- Left: Info Panel with Wood Pattern Style -->
-          <div class="bg-text-main dark:bg-black text-[#F2E8D5] p-10 md:w-2/5 flex flex-col justify-between relative overflow-hidden">
-             <!-- Pattern Overlay imitation -->
-            <div class="absolute top-0 left-0 w-full h-full opacity-10 bg-repeat z-0" style="background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0IiBoZWlnaHQ9IjQiPgo8cmVjdCB3aWR0aD0iNCIgaGVpZ2h0PSI0IiBmaWxsPSIjZmZmIiBmaWxsLW9wYWNpdHk9IjAuMDUiLz4KPC9zdmc+');"></div>
-            
-            <div class="relative z-10">
-              <div>
-                <h3 class="text-2xl font-serif font-bold mb-6 text-white">Kontakta oss</h3>
-                <p class="text-[#D8D0C5] mb-8 font-light">Vi finns här för att svara på dina frågor och boka in ett kostnadsfritt hembesök.</p>
-                <div class="space-y-8">
-                  <div class="flex items-start gap-4">
-                    <span class="material-symbols-outlined text-primary mt-1">call</span>
-                    <div>
-                      <p class="text-sm text-[#A89F95] font-medium uppercase tracking-wider mb-1">Telefon</p>
-                      <a href="tel:081234567" class="text-lg font-medium text-white hover:text-primary transition-colors">08-123 45 67</a>
-                    </div>
-                  </div>
-                  <div class="flex items-start gap-4">
-                    <span class="material-symbols-outlined text-primary mt-1">mail</span>
-                    <div>
-                      <p class="text-sm text-[#A89F95] font-medium uppercase tracking-wider mb-1">E-post</p>
-                      <a href="mailto:info@dodsbopartner.se" class="text-lg font-medium text-white hover:text-primary transition-colors">info&#64;dodsbopartner.se</a>
-                    </div>
-                  </div>
-                  <div class="flex items-start gap-4">
-                    <span class="material-symbols-outlined text-primary mt-1">location_on</span>
-                    <div>
-                      <p class="text-sm text-[#A89F95] font-medium uppercase tracking-wider mb-1">Adress</p>
-                      <p class="text-base font-light text-white">Drottninggatan 12<br/>111 51 Stockholm</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Right: Form -->
-          <div class="p-6 md:p-10 md:w-3/5 bg-white dark:bg-background-dark">
-            <app-contact-form />
-          </div>
-        </div>
       </div>
     </section>
   `,
@@ -310,8 +153,8 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     this.seo.setSeoData({
-      title: 'Dödsbo Stockholm | Tömning, Städning & Värdering',
-      description: 'Dödsbopartner AB erbjuder helhetslösningar för dödsbo i Stockholm & Uppsala. Vi köper, tömmer och städar. Boka kostnadsfri värdering idag.',
+      title: 'Tömning & Värdering av Dödsbo',
+      description: 'Dödsbopartner AB hjälper er med helheten. Vi köper, tömmer och städar dödsbon i Stockholm och Uppsala. Kontakta oss för en kostnadsfri värdering.',
       slug: ''
     });
   }
