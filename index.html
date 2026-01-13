@@ -75,7 +75,6 @@
 <script type="importmap">
 {
   "imports": {
-    "zone.js": "https://esm.sh/zone.js@0.14.0",
     "rxjs": "https://esm.sh/rxjs@^7.8.0?conditions=es2015",
     "rxjs/operators": "https://esm.sh/rxjs@^7.8.0/operators?conditions=es2015",
     "rxjs/ajax": "https://esm.sh/rxjs@^7.8.0/ajax?conditions=es2015",
@@ -87,12 +86,14 @@
     "@angular/platform-browser": "https://esm.sh/@angular/platform-browser@^18.2.0?external=rxjs",
     "@angular/core": "https://esm.sh/@angular/core@^18.2.0?external=rxjs",
     "@angular/common": "https://esm.sh/@angular/common@^18.2.0?external=rxjs",
-    "@angular/router": "https://esm.sh/@angular/router@^18.2.0?external=rxjs"
+    "@angular/router": "https://esm.sh/@angular/router@^18.2.0?external=rxjs",
+    "zone.js": "https://esm.sh/zone.js@^0.16.0?external=rxjs"
   }
 }
 </script>
 </head>
 <body class="bg-background-light text-text-main antialiased selection:bg-primary selection:text-white">
   <app-root></app-root>
+  <script type="module" src="./src/main.ts"></script>
 </body>
 </html>
