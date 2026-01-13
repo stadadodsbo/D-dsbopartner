@@ -1,13 +1,14 @@
 import { Component, ChangeDetectionStrategy, OnInit, inject } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { ContactFormComponent } from '../../components/contact-form/contact-form.component';
 import { SeoService } from '../../services/seo.service';
+import { ImageService } from '../../services/image.service';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, RouterLink, ContactFormComponent],
+  imports: [CommonModule, RouterLink, ContactFormComponent, NgOptimizedImage],
   template: `
     <!-- Organic Hero Section -->
     <section class="relative bg-background-light dark:bg-background-dark overflow-hidden">
@@ -49,10 +50,9 @@ import { SeoService } from '../../services/seo.service';
               <div class="w-full h-full relative overflow-hidden shadow-2xl" 
                    style="border-radius: 54% 46% 25% 75% / 55% 44% 56% 45%; box-shadow: -15px 15px 40px rgba(74, 60, 49, 0.15);">
                 <div class="absolute inset-0 bg-[#C69C55] opacity-10 mix-blend-overlay z-10 pointer-events-none"></div>
-                <div class="w-full h-full bg-cover bg-center transition-transform duration-1000 hover:scale-105" 
-                     role="img" aria-label="Warm interior"
-                     style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCjuwbfALO8DRiXvfwVIjeCGgsj60Ea8SBgZFsAG8ra0jGrO_TYdDoJ7I9MvsR2NP6gmzyVc-rfKB7WwI07fxgFqUGm2bBsVPB83kUe77gCPgMOxOTbX4jLbs6ZiJXrbtuKFdDKP2kjHLUHAEKNT_VgSpUT6rRtA100HebeGZp1xCzLbQRBynja4SxGXTAm_pWGTnzImGXKqYMBSSI-BxQa52Yy_vxJmh2S0ic7a4luAggqBdjQiYaamNWwsNu3OIwrzXLdKj_ld9be"); filter: sepia(0.15) saturate(1.1);'>
-                </div>
+                <img [ngSrc]="images.get('hero')" fill priority class="w-full h-full object-cover transition-transform duration-1000 hover:scale-105" 
+                     alt="Warm interior apartment in Stockholm" 
+                     style="filter: sepia(0.15) saturate(1.1);">
               </div>
               <div class="absolute -bottom-6 -left-6 bg-white dark:bg-surface-dark p-4 rounded-full shadow-xl border border-primary/10 dark:border-gray-700 hidden lg:block animate-bounce" style="animation-duration: 3s;">
                 <div class="bg-primary/10 rounded-full p-3 text-primary">
@@ -185,10 +185,7 @@ import { SeoService } from '../../services/seo.service';
                 Att hantera ett dödsbo innebär många praktiska och juridiska frågor. Vi på Dödsbopartner AB hjälper dig att navigera genom processen, men här är några begrepp som är bra att känna till.
               </p>
               <div class="relative rounded-lg overflow-hidden shadow-lg aspect-video mb-6 border border-[#F0EBE5] dark:border-gray-800">
-                <div class="w-full h-full bg-cover bg-center grayscale hover:grayscale-0 transition-all duration-700" 
-                     role="img" aria-label="Documents"
-                     style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuACEZc6AtQb6lROt9ADV8xGO3KOpNnzIz-sFtuDwBRnXlKSMK64s1TZFK7NyvMgCXo97ZuDtm4f0JOshHSA733JC9PdgqGd9OCMQrILjPzY0rZZQqQsATIMW4HtlxxYcY9Fm1s5wa2URq2yCtvH_si9VxfliPtav-ZOCBrYulnzNleY5PlEVl_4r6LfysAYNAVXzjKHnEsypHO6XOlPYG1lwRZEVno0BN5StJN9UQbuwazJKVvDpR_aIzgxoECnRvQMWmjZY-ctjYdM");'>
-                </div>
+                <img [ngSrc]="images.get('documents')" fill class="object-cover grayscale hover:grayscale-0 transition-all duration-700" alt="Documents on a table">
               </div>
             </div>
           </div>
@@ -309,6 +306,7 @@ import { SeoService } from '../../services/seo.service';
 })
 export class HomeComponent implements OnInit {
   private seo = inject(SeoService);
+  protected images = inject(ImageService);
 
   ngOnInit() {
     this.seo.setSeoData({

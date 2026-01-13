@@ -1,13 +1,14 @@
 import { Component, ChangeDetectionStrategy, OnInit, inject } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { ContactFormComponent } from '../../components/contact-form/contact-form.component';
 import { SeoService } from '../../services/seo.service';
+import { ImageService } from '../../services/image.service';
 
 @Component({
   selector: 'app-valuation',
   standalone: true,
-  imports: [CommonModule, RouterLink, ContactFormComponent],
+  imports: [CommonModule, RouterLink, ContactFormComponent, NgOptimizedImage],
   template: `
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 lg:py-12">
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 xl:gap-12">
@@ -95,21 +96,21 @@ import { SeoService } from '../../services/seo.service';
             </div>
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
               <div class="group relative overflow-hidden rounded-xl aspect-[4/5] bg-gray-100 dark:bg-gray-800">
-                <img alt="Antique wooden mid-century modern chair" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAAJxtBlCeyTOXJt0YrvWOot4vkFYLaOWpbnxwB_kjo5fx1cF7zV0ZNlJavS7_hBE-geStUHi2-2y0V4jkdibeHaZhQKyd6K7tlMKJfkyQBAu4sFPvmmfHUoQ5TxFObIS6Mg2p8xeqqUrtKnWTcvgeFZK7Vm0GDw77R9fL1Ljy04DSUXLOctwFIvkPNj-1EPUPpZcl4Q16Oducq6TI7fmm3Fl0FCy45Yoll1pVZm5eXoULT9Z4Cs1yooA73gS2aEJMHnd7SzSMQ6ghm"/>
+                <img alt="Antique wooden mid-century modern chair" [ngSrc]="images.get('chair')" fill class="object-cover transition-transform duration-500 group-hover:scale-105" />
                 <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex flex-col justify-end p-4">
                   <p class="text-white font-bold text-lg">Skandinavisk Design</p>
                   <p class="text-white/80 text-sm">Möbler, lampor & glas</p>
                 </div>
               </div>
               <div class="group relative overflow-hidden rounded-xl aspect-[4/5] bg-gray-100 dark:bg-gray-800">
-                <img alt="Stack of vintage oil paintings" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB9z4JKxeWBIyu65wShgr_vrgiitSwuaWTsDpgu_o88pxfVcocvSjRor30cSxT6r86a3w2VfKYok6SvK-_RvjFg3Oy7qhdd-bkeDpfuf5r_8Vcl2m34XguR92424SaqkiU41J08TovVpjpHXl0U9HS7llPI5w6OCoCkVlgoHJOpkealkZKcZkRvrUU2pcVTKwaE1A77ivItkjG9M0cY2IWBbBSEhaVW4Hjb-hyoW3uDRbz8axAi2LdSLULMtxBbsdG0kFOnRNH2LymZ"/>
+                <img alt="Stack of vintage oil paintings" [ngSrc]="images.get('paintings')" fill class="object-cover transition-transform duration-500 group-hover:scale-105" />
                 <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex flex-col justify-end p-4">
                   <p class="text-white font-bold text-lg">Konst & Tavlor</p>
                   <p class="text-white/80 text-sm">Oljemålningar & litografier</p>
                 </div>
               </div>
               <div class="group relative overflow-hidden rounded-xl aspect-[4/5] bg-gray-100 dark:bg-gray-800">
-                <img alt="Silver cutlery and antique ceramic plates" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBjPcrXLkPduAY0-ylCQDs4hqu9Sn0NqzSlYCMOLZpwOey21U576E0-1hL71oklFUwqGAGvhf7m66ndPeGPCcKP3FEl8aRhkNjii2m4S3JK4Ed76cjgB5v9Kan2qskLuQkcEcBqIQyuIgx9bjz1qdIvObQ4yrkbGaXalueRzo27gXCeKkdnS5SFltU7_hzuTjQ659JRR38fpQ5wHWQLw2zg1eGqtUQVc76vjGEa8dCratChpV_uGWQlBO-bzUacP8lldhaAvJKMKWtl"/>
+                <img alt="Silver cutlery and antique ceramic plates" [ngSrc]="images.get('silver')" fill class="object-cover transition-transform duration-500 group-hover:scale-105" />
                 <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex flex-col justify-end p-4">
                   <p class="text-white font-bold text-lg">Silver & Keramik</p>
                   <p class="text-white/80 text-sm">Matsilver & porslin</p>
@@ -223,6 +224,7 @@ import { SeoService } from '../../services/seo.service';
 })
 export class ValuationComponent implements OnInit {
   private seo = inject(SeoService);
+  protected images = inject(ImageService);
 
   ngOnInit() {
     this.seo.setSeoData({

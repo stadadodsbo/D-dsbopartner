@@ -1,12 +1,13 @@
 import { Component, ChangeDetectionStrategy, OnInit, inject } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { SeoService } from '../../services/seo.service';
+import { ImageService } from '../../services/image.service';
 
 @Component({
   selector: 'app-faq',
   standalone: true,
-  imports: [CommonModule, RouterLink],
+  imports: [CommonModule, RouterLink, NgOptimizedImage],
   template: `
     <main class="flex-grow">
       
@@ -164,8 +165,7 @@ import { SeoService } from '../../services/seo.service';
               </div>
               <div class="hidden lg:block relative h-[300px] w-full rounded-2xl overflow-hidden shadow-lg group">
                 <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent z-10"></div>
-                <div class="w-full h-full bg-cover bg-center transform group-hover:scale-105 transition-transform duration-700" role="img" aria-label="Calm living room" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDGxyQclR5r3XstKWO1yaIJvqWcS7qwRrGzS35CEFqTUf4pafO7ivOYa1X-SlnMjTyIaL3QqYu6Gya8uw7OuI34ejM5o5SGaPwDnQTlPeTECrSZ7qVpg_ufHazkiHM9sU3yaY06FGR0IJknM5XZvKW7s2MUCphZChFA3fyKGawEUC2yxXntwXP3MmMD2y63kRbJ_pJWwtypo6WgUxqwg45N4x-FbRWY8_SnQsf7HIdBjR7lC7kMEvwbiv0geZrguoUqd0b--wzD0TYc');">
-                </div>
+                <img [ngSrc]="images.get('guideHero')" fill class="object-cover transform group-hover:scale-105 transition-transform duration-700" alt="Calm living room">
                 <div class="absolute bottom-6 left-6 z-20">
                   <span class="bg-primary/90 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider mb-2 inline-block">Mest läst just nu</span>
                   <h3 class="text-white text-xl font-bold">Checklista vid dödsfall – Steg för steg</h3>
@@ -191,7 +191,9 @@ import { SeoService } from '../../services/seo.service';
                         </div>
                         <div class="bg-gray-50 dark:bg-surface-dark rounded-2xl overflow-hidden border border-gray-100 dark:border-gray-800 shadow-sm hover:shadow-md transition-shadow group cursor-pointer">
                             <div class="grid md:grid-cols-2 gap-0">
-                                <div class="bg-cover bg-center min-h-[240px] w-full" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuB4i2nscgYfOiS_BLoFn0DJbBS4aOPFqIxUj8GPcUxz7a74ricXYAzSQt149pEOcg4FT4aXYd1O4OHezn4jM2tSPiAIJ1FGIxxP87AicALxh272eJyhmEEZ0o6v_J-YZ6X7rZxbjrNAKiCmqp1mbgkEZTAfJb-xz0P5CCs5hqPWoUVcd8JIz50lQkwo3ffZVeF-FCq3BFIkLHVP0xmmT_Rc36tuW2bG0yJrSPpBROH59KbBGoeIAdcZmGr3EFPVZvQX0AC0lRAuCnEJ');"></div>
+                                <div class="relative min-h-[240px] w-full">
+                                   <img [ngSrc]="images.get('guideFullmakt')" fill class="object-cover" alt="Writing a contract">
+                                </div>
                                 <div class="p-8 flex flex-col justify-center gap-4">
                                      <div class="flex gap-2">
                                         <span class="text-xs font-semibold text-primary bg-primary/10 px-2 py-1 rounded">JURIDIK</span>
@@ -210,109 +212,76 @@ import { SeoService } from '../../services/seo.service';
                     <section>
                          <div class="flex items-center justify-between mb-6">
                           <h2 class="text-2xl font-bold text-text-main dark:text-white">Senaste artiklarna</h2>
+                          <a routerLink="/" class="text-sm font-bold text-primary hover:text-primary-dark transition-colors flex items-center gap-1">Visa alla <span class="material-symbols-outlined text-sm">arrow_forward</span></a>
                         </div>
-                        <div class="grid sm:grid-cols-2 gap-8">
+                        
+                        <div class="grid md:grid-cols-2 gap-6">
                             <!-- Article 1 -->
-                            <article class="flex flex-col gap-4 group">
-                                <div class="relative overflow-hidden rounded-xl aspect-[4/3] w-full">
-                                    <div class="absolute inset-0 bg-cover bg-center transform group-hover:scale-105 transition-transform duration-500" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDvIRCX4gX7tPOiDQv9rBrhnIuWoav4viCqjBtNsZIbtogGJY-QA89R5gcF0lCS2jTGveb4j5GsL7TEQqXX4FyzQ-yIIkEOSzmVtSUlYfyxty_P0PwmU9eWlBLm4p76SlX_vRLSPjc0WHpxmI_sBFf8QZ8pqnP9h4P8AoiS-Cc01ycrzzTuwIB_fFLcYRWhHi48Pld_VKGM_7EWptQYKSReNxAGu9EOEaYUfnMFlhK0cYJE-oSz3uiU5MYUdd4QmrbalhPqY_bdJHRW');"></div>
-                                    <div class="absolute top-4 left-4 bg-white/95 backdrop-blur-sm px-3 py-1 rounded-md text-xs font-bold text-primary border border-gray-100 shadow-sm">EKONOMI</div>
+                            <a routerLink="/tjanster/tomning" class="group flex gap-4 items-start p-4 rounded-xl hover:bg-gray-50 dark:hover:bg-surface-dark transition-colors border border-transparent hover:border-gray-100 dark:hover:border-gray-800">
+                                <div class="relative w-24 h-24 rounded-lg overflow-hidden shrink-0">
+                                     <img [ngSrc]="images.get('articleEmptying')" fill class="object-cover group-hover:scale-110 transition-transform duration-500" alt="Moving boxes">
                                 </div>
                                 <div>
-                                    <h3 class="text-lg font-bold text-text-main dark:text-white group-hover:text-primary transition-colors mb-2">
-                                        <a href="#">Allt om bouppteckning</a>
-                                    </h3>
-                                    <p class="text-text-secondary dark:text-gray-400 text-sm line-clamp-2">Regler, tidslinje och kostnader du behöver ha koll på.</p>
+                                     <span class="text-[10px] font-bold tracking-wider text-primary uppercase mb-1 block">Praktiskt</span>
+                                     <h4 class="font-bold text-text-main dark:text-white mb-1 group-hover:text-primary transition-colors">Tömning av dödsbo – checklista</h4>
+                                     <p class="text-xs text-text-secondary dark:text-gray-400 line-clamp-2">Vad ska man tänka på innan tömningen påbörjas?</p>
                                 </div>
-                            </article>
-                            <!-- Article 2 -->
-                             <article class="flex flex-col gap-4 group">
-                                <div class="relative overflow-hidden rounded-xl aspect-[4/3] w-full">
-                                    <div class="absolute inset-0 bg-cover bg-center transform group-hover:scale-105 transition-transform duration-500" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuA--YJBoleo0hxh_Po7FmsY0fwJ6ORSInV6R6MBJPG7YUv2MvfbJRHLgWVyKYfHLbK-EDvZiKQ-0DhcjGCUDe5nlL4lv9Qog2VF2PavaAGoUr8qbdFXcA9c_WlAbjA4L0obGlacQV8pwAU_xae1ByTnnWMATTTRBItfzV3Nl1fpc65MdtM0dBQ6PAXnaQBGyxQZF847oaN3hQL7FuRPr65lcbULj0i-JP1GTeX8FwGNZxJ99_It0vMwE59KPF4hxDMZ2fh5sUmsW3Nb');"></div>
-                                    <div class="absolute top-4 left-4 bg-white/95 backdrop-blur-sm px-3 py-1 rounded-md text-xs font-bold text-primary border border-gray-100 shadow-sm">PRAKTISKT</div>
+                            </a>
+
+                             <!-- Article 2 -->
+                            <a routerLink="/tjanster/salja-dodsbo" class="group flex gap-4 items-start p-4 rounded-xl hover:bg-gray-50 dark:hover:bg-surface-dark transition-colors border border-transparent hover:border-gray-100 dark:hover:border-gray-800">
+                                <div class="relative w-24 h-24 rounded-lg overflow-hidden shrink-0">
+                                     <img [ngSrc]="images.get('articleBouppteckning')" fill class="object-cover group-hover:scale-110 transition-transform duration-500" alt="Legal documents">
                                 </div>
                                 <div>
-                                    <h3 class="text-lg font-bold text-text-main dark:text-white group-hover:text-primary transition-colors mb-2">
-                                        <a href="#">Tömma dödsbo själv?</a>
-                                    </h3>
-                                    <p class="text-text-secondary dark:text-gray-400 text-sm line-clamp-2">Vi jämför tidsåtgång och kostnader för att göra det själv vs anlita firma.</p>
+                                     <span class="text-[10px] font-bold tracking-wider text-primary uppercase mb-1 block">Juridik</span>
+                                     <h4 class="font-bold text-text-main dark:text-white mb-1 group-hover:text-primary transition-colors">Bouppteckning för nybörjare</h4>
+                                     <p class="text-xs text-text-secondary dark:text-gray-400 line-clamp-2">En enkel guide genom byråkratin vid ett dödsfall.</p>
                                 </div>
-                            </article>
+                            </a>
                         </div>
                     </section>
                 </div>
 
-                <!-- Guides Sidebar -->
-                <aside class="lg:col-span-4 space-y-8">
-                     <div class="bg-gray-50 dark:bg-surface-dark rounded-2xl p-6 border border-gray-100 dark:border-gray-800 shadow-sm">
-                        <h3 class="text-lg font-bold text-text-main dark:text-white mb-4 flex items-center gap-2">
-                          <span class="material-symbols-outlined text-primary">handshake</span>
-                          Våra Tjänster
-                        </h3>
-                        <nav class="flex flex-col gap-2">
-                           <a class="group flex items-center justify-between p-3 rounded-lg hover:bg-white dark:hover:bg-white/5 transition-colors border border-transparent hover:border-gray-200" routerLink="/tjanster/tomning">
-                             <div class="flex items-center gap-3">
-                                <span class="material-symbols-outlined text-primary group-hover:scale-110 transition-transform">inventory_2</span>
-                                <span class="text-text-main dark:text-white font-medium text-sm">Tömning av dödsbo</span>
-                             </div>
-                             <span class="material-symbols-outlined text-gray-400 text-sm">chevron_right</span>
-                           </a>
-                           <a class="group flex items-center justify-between p-3 rounded-lg hover:bg-white dark:hover:bg-white/5 transition-colors border border-transparent hover:border-gray-200" routerLink="/tjanster/flyttstadning">
-                             <div class="flex items-center gap-3">
-                                <span class="material-symbols-outlined text-primary group-hover:scale-110 transition-transform">cleaning_services</span>
-                                <span class="text-text-main dark:text-white font-medium text-sm">Dödsbostädning</span>
-                             </div>
-                             <span class="material-symbols-outlined text-gray-400 text-sm">chevron_right</span>
-                           </a>
-                           <a class="group flex items-center justify-between p-3 rounded-lg hover:bg-white dark:hover:bg-white/5 transition-colors border border-transparent hover:border-gray-200" routerLink="/tjanster/salja-dodsbo">
-                             <div class="flex items-center gap-3">
-                                <span class="material-symbols-outlined text-primary group-hover:scale-110 transition-transform">currency_exchange</span>
-                                <span class="text-text-main dark:text-white font-medium text-sm">Värdering & Uppköp</span>
-                             </div>
-                             <span class="material-symbols-outlined text-gray-400 text-sm">chevron_right</span>
-                           </a>
-                           <a class="group flex items-center justify-between p-3 rounded-lg hover:bg-white dark:hover:bg-white/5 transition-colors border border-transparent hover:border-gray-200" routerLink="/tjanster/sanering">
-                             <div class="flex items-center gap-3">
-                                <span class="material-symbols-outlined text-primary group-hover:scale-110 transition-transform">recycling</span>
-                                <span class="text-text-main dark:text-white font-medium text-sm">Återvinning</span>
-                             </div>
-                             <span class="material-symbols-outlined text-gray-400 text-sm">chevron_right</span>
-                           </a>
-                        </nav>
-                     </div>
-
-                     <div class="bg-primary/5 rounded-2xl p-6 border border-primary/10">
-                        <h4 class="font-bold text-text-main dark:text-white mb-2">Prenumerera på våra tips</h4>
-                        <p class="text-text-secondary dark:text-gray-400 text-sm mb-4">Få juridiska råd och checklistor direkt i mejlkorgen.</p>
-                        <div class="flex gap-2">
-                            <input class="flex-1 rounded-lg border-gray-200 bg-white px-3 py-2 text-sm" placeholder="Din e-post" type="email"/>
-                            <button class="bg-primary text-white rounded-lg px-4 py-2 text-sm font-bold hover:bg-primary-dark">OK</button>
+                <!-- Sidebar (Tags/Newsletter) -->
+                <div class="lg:col-span-4 space-y-8">
+                    <div class="bg-gray-50 dark:bg-surface-dark p-6 rounded-xl border border-gray-100 dark:border-gray-800">
+                        <h4 class="font-bold text-text-main dark:text-white mb-4">Populära ämnen</h4>
+                        <div class="flex flex-wrap gap-2">
+                             <span class="bg-white dark:bg-background-dark border border-gray-200 dark:border-gray-700 text-xs font-medium px-3 py-1.5 rounded-full text-text-secondary dark:text-gray-300">Bouppteckning</span>
+                             <span class="bg-white dark:bg-background-dark border border-gray-200 dark:border-gray-700 text-xs font-medium px-3 py-1.5 rounded-full text-text-secondary dark:text-gray-300">Skatteregler</span>
+                             <span class="bg-white dark:bg-background-dark border border-gray-200 dark:border-gray-700 text-xs font-medium px-3 py-1.5 rounded-full text-text-secondary dark:text-gray-300">RUT-avdrag</span>
+                             <span class="bg-white dark:bg-background-dark border border-gray-200 dark:border-gray-700 text-xs font-medium px-3 py-1.5 rounded-full text-text-secondary dark:text-gray-300">Värdering</span>
+                             <span class="bg-white dark:bg-background-dark border border-gray-200 dark:border-gray-700 text-xs font-medium px-3 py-1.5 rounded-full text-text-secondary dark:text-gray-300">Sälja Guld</span>
+                             <span class="bg-white dark:bg-background-dark border border-gray-200 dark:border-gray-700 text-xs font-medium px-3 py-1.5 rounded-full text-text-secondary dark:text-gray-300">Testamente</span>
                         </div>
-                     </div>
-                </aside>
+                    </div>
+
+                    <div class="bg-text-main dark:bg-black p-8 rounded-xl text-white text-center">
+                        <span class="material-symbols-outlined text-4xl text-primary mb-3">mail</span>
+                        <h4 class="font-bold text-lg mb-2">Prenumerera på nyhetsbrevet</h4>
+                        <p class="text-sm text-gray-300 mb-6">Få tips och råd om dödsbohantering direkt i inkorgen.</p>
+                        <input type="email" placeholder="Din e-postadress" class="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 text-white placeholder:text-gray-400 text-sm focus:outline-none focus:border-primary mb-3" />
+                        <button class="w-full bg-primary hover:bg-primary-dark text-white font-bold py-3 rounded-lg transition-colors text-sm">Gå med</button>
+                    </div>
+                </div>
+
             </div>
         </div>
       </section>
 
     </main>
   `,
-  styles: [`
-    details[open] summary .expand-icon {
-        transform: rotate(180deg);
-    }
-    details summary::-webkit-details-marker {
-        display: none;
-    }
-  `],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class FaqComponent implements OnInit {
   private seo = inject(SeoService);
+  protected images = inject(ImageService);
 
   ngOnInit() {
     this.seo.setSeoData({
-      title: 'Vanliga Frågor & Svar | Dödsbopartner AB',
-      description: 'Här hittar du svar på vanliga frågor om dödsbo, tömning, värdering och flyttstädning. Vi hjälper dig med hela processen.',
+      title: 'Vanliga frågor & svar | Dödsbopartner AB',
+      description: 'Här hittar du svar på vanliga frågor om tömning, värdering och städning av dödsbo. Läs våra guider och checklistor.',
       slug: 'vanliga-fragor'
     });
   }

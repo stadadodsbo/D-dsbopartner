@@ -1,6 +1,7 @@
 import { Injectable, inject } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
 import { DOCUMENT } from '@angular/common';
+import { ImageService } from './image.service';
 
 export interface SeoConfig {
   title: string;
@@ -15,10 +16,10 @@ export interface SeoConfig {
 export class SeoService {
   private titleService = inject(Title);
   private metaService = inject(Meta);
+  private images = inject(ImageService);
   // We use string typing for document to support SSR/SSG environments safely
   private dom = inject(DOCUMENT);
 
-  private readonly defaultImage = 'https://lh3.googleusercontent.com/aida-public/AB6AXuCjuwbfALO8DRiXvfwVIjeCGgsj60Ea8SBgZFsAG8ra0jGrO_TYdDoJ7I9MvsR2NP6gmzyVc-rfKB7WwI07fxgFqUGm2bBsVPB83kUe77gCPgMOxOTbX4jLbs6ZiJXrbtuKFdDKP2kjHLUHAEKNT_VgSpUT6rRtA100HebeGZp1xCzLbQRBynja4SxGXTAm_pWGTnzImGXKqYMBSSI-BxQa52Yy_vxJmh2S0ic7a4luAggqBdjQiYaamNWwsNu3OIwrzXLdKj_ld9be';
   private readonly siteName = 'Dödsbopartner AB';
   private readonly baseUrl = 'https://www.dodsbopartner.se';
 
@@ -35,7 +36,7 @@ export class SeoService {
     this.metaService.updateTag({ name: 'title', content: finalTitle });
 
     // 3. Set Open Graph (Facebook/LinkedIn)
-    const imageUrl = config.image || this.defaultImage;
+    const imageUrl = config.image || this.images.getDefault();
     const url = `${this.baseUrl}/${config.slug || ''}`;
 
     this.metaService.updateTag({ property: 'og:type', content: 'website' });

@@ -1,6 +1,7 @@
-import { Component, ChangeDetectionStrategy, signal } from '@angular/core';
+import { Component, ChangeDetectionStrategy, signal, inject } from '@angular/core';
 import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { SupabaseService } from '../../services/supabase.service';
 
 @Component({
   selector: 'app-contact-form',
@@ -23,6 +24,13 @@ import { CommonModule } from '@angular/common';
             <button type="button" (click)="resetForm()" class="mt-4 text-sm font-medium text-green-700 hover:text-green-900 underline">Skicka nytt meddelande</button>
           </div>
         } @else {
+          <!-- Error Message -->
+          @if (errorMessage()) {
+             <div class="bg-red-50 text-red-800 p-4 rounded-lg border border-red-100 text-sm mb-4">
+               {{ errorMessage() }}
+             </div>
+          }
+
           <!-- Name -->
           <div>
             <label class="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-1.5" for="name">Namn</label>
@@ -63,14 +71,20 @@ import { CommonModule } from '@angular/common';
             ></textarea>
           </div>
 
-          <!-- File Upload (Visual only for now) -->
+          <!-- File Upload -->
           <div class="pt-2">
-            <label class="flex items-center justify-center w-full h-12 px-4 transition bg-white dark:bg-background-dark border-2 border-gray-200 dark:border-gray-700 border-dashed rounded-lg appearance-none cursor-pointer hover:border-primary dark:hover:border-primary focus:outline-none">
-              <span class="flex items-center space-x-2">
+            <label class="flex items-center justify-center w-full h-12 px-4 transition bg-white dark:bg-background-dark border-2 border-gray-200 dark:border-gray-700 border-dashed rounded-lg appearance-none cursor-pointer hover:border-primary dark:hover:border-primary focus:outline-none overflow-hidden">
+              <span class="flex items-center space-x-2 truncate">
                 <span class="material-symbols-outlined text-gray-400">add_a_photo</span>
-                <span class="text-sm text-gray-500 font-medium">Bifoga bilder (valfritt)</span>
+                <span class="text-sm text-gray-500 font-medium truncate">
+                    @if (selectedFile()) {
+                        {{ selectedFile()?.name }}
+                    } @else {
+                        Bifoga bilder (valfritt)
+                    }
+                </span>
               </span>
-              <input class="hidden" name="file_upload" type="file"/>
+              <input class="hidden" name="file_upload" type="file" (change)="onFileSelected($event)" accept="image/*" />
             </label>
           </div>
 
@@ -81,6 +95,7 @@ import { CommonModule } from '@angular/common';
             class="w-full bg-primary hover:bg-primary-dark disabled:bg-primary/50 text-white font-bold py-3.5 px-4 rounded-lg shadow-md hover:shadow-lg transition-all transform active:scale-[0.98] mt-2 flex items-center justify-center gap-2"
           >
             @if (isSubmitting()) {
+              <span class="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin"></span>
               <span>Skickar...</span>
             } @else {
               <span>Skicka förfrågan</span>
@@ -98,11 +113,16 @@ import { CommonModule } from '@angular/common';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ContactFormComponent {
+  private fb = inject(FormBuilder);
+  private supabase = inject(SupabaseService);
+  
   contactForm: FormGroup;
   submitted = signal(false);
   isSubmitting = signal(false);
+  errorMessage = signal<string | null>(null);
+  selectedFile = signal<File | null>(null);
 
-  constructor(private fb: FormBuilder) {
+  constructor() {
     this.contactForm = this.fb.group({
       name: ['', Validators.required],
       phone: ['', Validators.required],
@@ -116,13 +136,46 @@ export class ContactFormComponent {
     return !!(control && control.invalid && (control.dirty || control.touched));
   }
 
+  onFileSelected(event: Event) {
+    const input = event.target as HTMLInputElement;
+    if (input.files && input.files.length > 0) {
+      this.selectedFile.set(input.files[0]);
+    }
+  }
+
   async onSubmit() {
     if (this.contactForm.valid) {
       this.isSubmitting.set(true);
-      await new Promise(resolve => setTimeout(resolve, 1500));
-      console.log('Form Submitted', this.contactForm.value);
-      this.submitted.set(true);
-      this.isSubmitting.set(false);
+      this.errorMessage.set(null);
+
+      try {
+        let fileUrl: string | undefined = undefined;
+
+        // 1. Upload File if present
+        if (this.selectedFile()) {
+           try {
+             fileUrl = await this.supabase.uploadFile(this.selectedFile()!);
+           } catch (err) {
+             console.error('File upload failed but continuing with form', err);
+             // Optionally handle file upload error specifically, or just continue without the file
+           }
+        }
+
+        // 2. Submit Data
+        await this.supabase.submitContactForm({
+          ...this.contactForm.value,
+          fileUrl
+        });
+
+        this.submitted.set(true);
+        this.contactForm.reset();
+        this.selectedFile.set(null);
+      } catch (err) {
+        console.error('Form Submission Error', err);
+        this.errorMessage.set('Något gick fel vid sändningen. Försök igen eller kontakta oss på telefon.');
+      } finally {
+        this.isSubmitting.set(false);
+      }
     } else {
       this.contactForm.markAllAsTouched();
     }
@@ -130,6 +183,7 @@ export class ContactFormComponent {
 
   resetForm() {
     this.submitted.set(false);
-    this.contactForm.reset();
+    this.errorMessage.set(null);
+    this.selectedFile.set(null);
   }
 }
