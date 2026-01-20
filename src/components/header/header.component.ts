@@ -1,12 +1,47 @@
-import { Component, ChangeDetectionStrategy, signal } from '@angular/core';
+import { Component, ChangeDetectionStrategy, signal, HostListener, inject } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
+import { CommonModule } from '@angular/common';
+import { SupabaseService } from '../../services/supabase.service';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [RouterLink, RouterLinkActive],
+  imports: [RouterLink, RouterLinkActive, CommonModule],
+  styles: [`
+    :host {
+      display: block;
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      width: 100%;
+    }
+  `],
   template: `
-    <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-sm dark:bg-background-dark/95 border-b border-[#EBE5DE] dark:border-gray-800 h-20 transition-all duration-300">
+    <!-- Mobile Top Bar (Visible only on mobile) -->
+    <div 
+      class="lg:hidden relative z-[60] w-full flex justify-center items-center transition-all duration-300 ease-in-out border-primary/10 bg-white/95 backdrop-blur-sm dark:bg-surface-dark/95 border-b"
+      [class.py-4]="isPhoneExpanded()"
+      [class.py-2]="!isPhoneExpanded()"
+      [class.shadow-lg]="isPhoneExpanded()"
+    >
+        <a href="tel:081234567" class="inline-flex items-center gap-2 font-bold text-primary transition-all duration-300"
+           [class.text-xl]="isPhoneExpanded()"
+           [class.text-sm]="!isPhoneExpanded()">
+            <span class="material-symbols-outlined transition-all duration-300" 
+                  [class.text-[26px]]="isPhoneExpanded()"
+                  [class.text-[18px]]="!isPhoneExpanded()"
+                  style="font-variation-settings: 'FILL' 1">call</span>
+            08-123 45 67
+        </a>
+    </div>
+
+    <!-- Main Header -->
+    <header 
+      class="relative z-50 bg-white/95 backdrop-blur-sm dark:bg-background-dark/95 border-b border-[#EBE5DE] dark:border-gray-800 h-20 transition-all duration-300"
+      [class.-translate-y-full]="isNavHidden()"
+      [class.translate-y-0]="!isNavHidden()"
+      [class.lg:translate-y-0]="true"
+    >
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full">
         <div class="flex items-center justify-between h-full">
           <!-- Logo Section -->
@@ -70,14 +105,26 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
             </div>
 
             <a routerLink="/vanliga-fragor" routerLinkActive="text-primary" class="text-sm font-bold text-text-main hover:text-primary dark:text-gray-300 transition-colors uppercase tracking-wide">Vanliga Frågor</a>
-            <a routerLink="/" fragment="process" class="text-sm font-bold text-text-main hover:text-primary dark:text-gray-300 transition-colors uppercase tracking-wide">Process</a>
-            <a routerLink="/" fragment="om-oss" class="text-sm font-bold text-text-main hover:text-primary dark:text-gray-300 transition-colors uppercase tracking-wide">Om oss</a>
             <a routerLink="/" fragment="kontakt" class="text-sm font-bold text-text-main hover:text-primary dark:text-gray-300 transition-colors uppercase tracking-wide">Kontakt</a>
           </nav>
 
           <!-- Right Actions -->
           <div class="flex items-center gap-4">
-            <a href="tel:081234567" class="hidden xl:flex items-center gap-2 text-sm font-bold text-text-main dark:text-white hover:text-primary transition-colors">
+            <!-- Login Button (Desktop) -->
+            @if (supabase.currentUser()) {
+              <div class="hidden sm:flex items-center gap-3">
+                 <button (click)="supabase.signOut()" class="text-sm font-bold text-text-main hover:text-primary uppercase tracking-wide">Logga ut</button>
+                 <div class="size-9 bg-primary/10 rounded-full flex items-center justify-center text-primary" title="Inloggad">
+                    <span class="material-symbols-outlined">person</span>
+                 </div>
+              </div>
+            } @else {
+               <a routerLink="/login" class="hidden sm:flex items-center gap-1 text-sm font-bold text-text-main hover:text-primary dark:text-white transition-colors uppercase tracking-wide">
+                  Logga in
+              </a>
+            }
+
+            <a href="tel:081234567" class="hidden xl:flex items-center gap-2 text-sm font-bold text-text-main dark:text-white hover:text-primary transition-colors border-l border-gray-200 pl-4 ml-2">
               <span class="material-symbols-outlined text-primary text-[22px]">call</span>
               08-123 45 67
             </a>
@@ -109,10 +156,22 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
             </div>
 
             <a routerLink="/vanliga-fragor" (click)="closeMenu()" class="text-lg font-bold text-text-main hover:text-primary py-3 border-b border-gray-50 dark:border-gray-800">Vanliga Frågor</a>
-            <a routerLink="/" fragment="process" (click)="closeMenu()" class="text-lg font-bold text-text-main hover:text-primary py-3 border-b border-gray-50 dark:border-gray-800">Process</a>
-            <a routerLink="/" fragment="om-oss" (click)="closeMenu()" class="text-lg font-bold text-text-main hover:text-primary py-3 border-b border-gray-50 dark:border-gray-800">Om oss</a>
             <a routerLink="/" fragment="kontakt" (click)="closeMenu()" class="text-lg font-bold text-text-main hover:text-primary py-3">Kontakt</a>
             
+            <!-- Mobile Auth -->
+            <div class="py-3 border-b border-gray-50 dark:border-gray-800">
+                @if (supabase.currentUser()) {
+                    <div class="flex items-center justify-between">
+                        <span class="text-sm font-medium text-gray-500">Inloggad som {{ supabase.currentUser()?.email }}</span>
+                        <button (click)="supabase.signOut(); closeMenu()" class="text-primary font-bold">Logga ut</button>
+                    </div>
+                } @else {
+                    <a routerLink="/login" (click)="closeMenu()" class="text-lg font-bold text-text-main hover:text-primary flex items-center gap-2">
+                        <span class="material-symbols-outlined">login</span> Logga in
+                    </a>
+                }
+            </div>
+
             <div class="mt-4 pt-4 border-t border-gray-100 dark:border-gray-800">
                 <a href="tel:081234567" class="flex items-center gap-3 justify-center text-text-main hover:text-primary transition-colors mb-4">
                 <span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1">call</span>
@@ -132,6 +191,36 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
 })
 export class HeaderComponent {
   isMenuOpen = signal(false);
+  isNavHidden = signal(false);
+  isPhoneExpanded = signal(false);
+  private lastScrollY = 0;
+  public supabase = inject(SupabaseService);
+
+  @HostListener('window:scroll')
+  onWindowScroll() {
+    const currentScroll = window.scrollY;
+    
+    // Reset at top
+    if (currentScroll < 10) {
+      this.isNavHidden.set(false);
+      this.isPhoneExpanded.set(false);
+      this.lastScrollY = currentScroll;
+      return;
+    }
+
+    // Determine direction
+    if (currentScroll > this.lastScrollY) {
+       // Scrolling Down: Hide Nav, Expand Phone
+       this.isNavHidden.set(true);
+       this.isPhoneExpanded.set(true);
+    } else {
+       // Scrolling Up: Show Nav, Original Phone Size
+       this.isNavHidden.set(false);
+       this.isPhoneExpanded.set(false);
+    }
+    
+    this.lastScrollY = currentScroll;
+  }
 
   toggleMenu() {
     this.isMenuOpen.update(v => !v);

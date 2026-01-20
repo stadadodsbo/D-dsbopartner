@@ -27,30 +27,40 @@
   <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://images.unsplash.com">
+  <link rel="preconnect" href="https://lh3.googleusercontent.com">
+  
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
   
+  <!-- Polyfill for process.env to prevent crashes in browser environments -->
+  <script>
+    if (typeof process === 'undefined') {
+      window.process = { env: { API_KEY: '' } };
+    }
+  </script>
+
   <script>
     tailwind.config = {
         darkMode: "class",
         theme: {
             extend: {
                 colors: {
-                    "primary": "#C69C55", // Gold/Brass from design (kept original for consistency, close to C5A572)
+                    "primary": "#C69C55",
                     "primary-dark": "#A88344",
                     "primary-light": "#F2E8D5",
-                    "background-light": "#FAF9F7", // Warm white
-                    "background-dark": "#2B241E", // Dark brown/black
+                    "background-light": "#FAF9F7",
+                    "background-dark": "#2B241E",
                     "surface-light": "#ffffff",
                     "surface-dark": "#3E342B",
-                    "text-main": "#4A3C31", // Dark brown
+                    "text-main": "#4A3C31",
                     "text-highlight": "#C69C55",
-                    "text-sub": "#766A60", // Muted brown/grey
-                    "text-secondary": "#786C60", // Added for FAQ page
+                    "text-sub": "#766A60",
+                    "text-secondary": "#786C60",
                     "accent-brown": "#5D4C3E",
-                    "brand-dark": "#251F1A", // Added for FAQ page
-                    "border-light": "#F2F0ED", // Added for FAQ page
-                    "border-medium": "#E6E2DE" // Added for FAQ page
+                    "brand-dark": "#251F1A",
+                    "border-light": "#F2F0ED",
+                    "border-medium": "#E6E2DE"
                 },
                 fontFamily: {
                     "display": ["Inter", "sans-serif"],
@@ -87,7 +97,8 @@
     "@angular/core": "https://esm.sh/@angular/core@^18.2.0?external=rxjs",
     "@angular/common": "https://esm.sh/@angular/common@^18.2.0?external=rxjs",
     "@angular/router": "https://esm.sh/@angular/router@^18.2.0?external=rxjs",
-    "@supabase/supabase-js": "https://esm.sh/@supabase/supabase-js@^2.39.0"
+    "@supabase/supabase-js": "https://esm.sh/@supabase/supabase-js@^2.39.0",
+    "@google/genai": "https://esm.sh/@google/genai@^1.35.0?external=rxjs"
   }
 }
 </script>

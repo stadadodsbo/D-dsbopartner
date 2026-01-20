@@ -1,4 +1,4 @@
-import { Component, ChangeDetectionStrategy, signal, inject } from '@angular/core';
+import { Component, ChangeDetectionStrategy, signal, inject, input } from '@angular/core';
 import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { SupabaseService } from '../../services/supabase.service';
@@ -8,11 +8,14 @@ import { SupabaseService } from '../../services/supabase.service';
   standalone: true,
   imports: [CommonModule, ReactiveFormsModule],
   template: `
-    <div class="bg-white dark:bg-surface-dark rounded-2xl shadow-xl border border-gray-100 dark:border-gray-800 p-6 sm:p-8">
-      <div class="mb-6">
-        <h3 class="text-xl font-bold text-text-main dark:text-white mb-2">Kostnadsfri värdering</h3>
-        <p class="text-sm text-gray-500 dark:text-gray-400">Fyll i formuläret så återkommer vi med ett prisförslag eller bokar in ett hembesök.</p>
-      </div>
+    <div [class]="embedded() ? '' : 'bg-white dark:bg-surface-dark rounded-2xl shadow-xl border border-gray-100 dark:border-gray-800 p-6 sm:p-8'">
+      
+      @if (!embedded()) {
+        <div class="mb-6">
+          <h3 class="text-xl font-bold text-text-main dark:text-white mb-2">Kostnadsfri värdering</h3>
+          <p class="text-sm text-gray-500 dark:text-gray-400">Fyll i formuläret så återkommer vi med ett prisförslag eller bokar in ett hembesök.</p>
+        </div>
+      }
       
       <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="space-y-4">
         <!-- Success Message -->
@@ -113,6 +116,7 @@ import { SupabaseService } from '../../services/supabase.service';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ContactFormComponent {
+  embedded = input(false);
   private fb = inject(FormBuilder);
   private supabase = inject(SupabaseService);
   

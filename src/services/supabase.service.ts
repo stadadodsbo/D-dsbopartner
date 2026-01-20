@@ -1,5 +1,5 @@
-import { Injectable } from '@angular/core';
-import { createClient, SupabaseClient } from '@supabase/supabase-js';
+import { Injectable, signal } from '@angular/core';
+import { createClient, SupabaseClient, User } from '@supabase/supabase-js';
 
 @Injectable({
   providedIn: 'root'
@@ -7,12 +7,25 @@ import { createClient, SupabaseClient } from '@supabase/supabase-js';
 export class SupabaseService {
   private supabase: SupabaseClient;
   
+  // Expose user state
+  public currentUser = signal<User | null>(null);
+  
   // NOTE: In a real production app, use environment variables.
   private readonly supabaseUrl = 'https://zpevjmmribzjvtmaxghl.supabase.co';
   private readonly supabaseKey = 'sb_publishable_DhbRBtn-Nyj8MBtBAjJGBA_2aMkBYiJ';
 
   constructor() {
     this.supabase = createClient(this.supabaseUrl, this.supabaseKey);
+    
+    // Initialize user session
+    this.supabase.auth.getUser().then(({ data }) => {
+      this.currentUser.set(data.user);
+    });
+
+    // Listen for auth changes
+    this.supabase.auth.onAuthStateChange((_, session) => {
+      this.currentUser.set(session?.user ?? null);
+    });
   }
 
   /**
@@ -61,5 +74,26 @@ export class SupabaseService {
       .getPublicUrl(filePath);
 
     return data.publicUrl;
+  }
+
+  /**
+   * Sign in with email and password
+   */
+  async signIn(email: string, password: string) {
+    const { data, error } = await this.supabase.auth.signInWithPassword({
+      email,
+      password
+    });
+    
+    if (error) throw error;
+    return data;
+  }
+
+  /**
+   * Sign out
+   */
+  async signOut() {
+    const { error } = await this.supabase.auth.signOut();
+    if (error) throw error;
   }
 }

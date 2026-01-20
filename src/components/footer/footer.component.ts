@@ -18,8 +18,9 @@ import { RouterLink } from '@angular/router';
             <div class="flex items-center gap-3">
                <div class="text-primary size-8">
                 <svg fill="none" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" class="w-full h-full">
-                  <path d="M50 15L75 28V50C75 65 64 78 50 85C36 78 25 65 25 50V28L50 15Z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="6"></path>
-                  <path d="M50 35C50 35 48 45 55 52" stroke="currentColor" stroke-linecap="round" stroke-width="4"></path>
+                  <path d="M50 15L75 28V50C75 65 64 78 50 85C36 78 25 65 25 50V28L50 15Z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="4"></path>
+                  <path d="M50 80C50 80 40 70 40 55C40 45 45 40 50 35C55 40 60 45 60 55C60 65 55 70 50 80Z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"></path>
+                  <path d="M50 35C50 35 48 45 55 52" stroke="currentColor" stroke-linecap="round" stroke-width="3"></path>
                 </svg>
                </div>
                <span class="text-text-main font-bold text-lg uppercase tracking-wide">Dödsbopartner AB</span>

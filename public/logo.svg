@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="512" height="512" fill="none">
+  <!-- Shield Outline (Dark Brown: #4A3C31) -->
+  <path d="M50 15L75 28V50C75 65 64 78 50 85C36 78 25 65 25 50V28L50 15Z" stroke="#4A3C31" stroke-linecap="round" stroke-linejoin="round" stroke-width="4"></path>
+  
+  <!-- Inner Symbol (Gold: #C69C55) -->
+  <path d="M50 80C50 80 40 70 40 55C40 45 45 40 50 35C55 40 60 45 60 55C60 65 55 70 50 80Z" stroke="#C69C55" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"></path>
+  
+  <!-- Detail Line (Gold: #C69C55) -->
+  <path d="M50 35C50 35 48 45 55 52" stroke="#C69C55" stroke-linecap="round" stroke-width="3"></path>
+</svg>

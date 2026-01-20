@@ -5,6 +5,7 @@ import { CleaningComponent } from './pages/services/cleaning.component';
 import { SellingComponent } from './pages/services/selling.component';
 import { RemediationComponent } from './pages/services/remediation.component';
 import { FaqComponent } from './pages/faq/faq.component';
+import { LoginComponent } from './pages/auth/login.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 
 export const routes: Routes = [
@@ -15,8 +16,9 @@ export const routes: Routes = [
   { path: 'tjanster/salja-dodsbo', component: SellingComponent },
   { path: 'tjanster/sanering', component: RemediationComponent },
   
-  // New Page
+  // Pages
   { path: 'vanliga-fragor', component: FaqComponent },
+  { path: 'login', component: LoginComponent },
   
   { path: '404', component: NotFoundComponent },
   { path: '**', redirectTo: '404' }
