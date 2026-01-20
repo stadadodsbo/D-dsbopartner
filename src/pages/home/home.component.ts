@@ -12,19 +12,16 @@ import { ImageService } from '../../services/image.service';
   template: `
     <!-- Organic Hero Section -->
     <section class="relative bg-background-light dark:bg-background-dark overflow-hidden">
-      <!-- Mobile: px-0 to allow full-width image. Desktop: Standard padding. -->
       <div class="max-w-7xl mx-auto px-0 sm:px-6 lg:px-8 pb-12 lg:py-20">
-        <!-- Mobile: flex-col-reverse puts image (2nd in DOM) on top, Text (1st in DOM) below. -->
         <div class="flex flex-col-reverse lg:flex-row items-center gap-0 lg:gap-8">
           
           <!-- Text Content -->
-          <!-- Added px-4 for mobile since container lost padding -->
           <div class="flex-1 text-center lg:text-left space-y-8 px-4 sm:px-0 lg:pr-12 relative z-10 mt-8 lg:mt-0">
             <h1 class="text-4xl sm:text-5xl lg:text-6xl font-serif text-text-main dark:text-white leading-tight tracking-tight">
-              Din partner vid hantering av dödsbo
+              Tömning, Städning & Uppköp av Dödsbo Stockholm
             </h1>
             <p class="text-lg text-text-sub dark:text-gray-300 max-w-2xl mx-auto lg:mx-0 leading-relaxed font-light">
-              Vi skapar trygghet i en svår stund. Helhetslösning för tömning, städning och värdering i Stockholm med fokus på omtanke och respekt.
+              Vi skapar trygghet i en svår stund. Helhetslösning för tömning, flyttstädning och värdering i Stockholm med fokus på omtanke och respekt. Vi är din trygga uppköpare av dödsbo.
             </p>
             <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start pt-2">
               <a routerLink="/tjanster/tomning" class="bg-primary hover:bg-primary-dark text-white text-base font-medium py-3 px-8 rounded-lg shadow-lg hover:shadow-xl transition-all">
@@ -48,23 +45,18 @@ import { ImageService } from '../../services/image.service';
           
           <!-- Organic Image -->
           <div class="w-full lg:flex-1 relative">
-            <!-- Blob Background (Desktop Only) -->
             <div class="hidden lg:block absolute inset-0 bg-primary/20 blur-2xl transform translate-x-4 translate-y-4 rounded-[30%_70%_70%_30%_/_30%_30%_70%_70%] opacity-50"></div>
             
-            <!-- Image Container -->
-            <!-- Fixed: Using standard aspect-ratio to prevent 0-height warning from NgOptimizedImage -->
             <div class="relative w-full aspect-[16/10] sm:aspect-video lg:aspect-[4/3] overflow-hidden
                         lg:rounded-[54%_46%_25%_75%_/_55%_44%_56%_45%] lg:shadow-2xl">
               
-              <!-- Desktop Overlay -->
               <div class="hidden lg:block absolute inset-0 bg-[#C69C55] opacity-10 mix-blend-overlay z-10 pointer-events-none"></div>
               
               <img [ngSrc]="images.get('hero')" fill priority 
                    class="object-cover transition-transform duration-1000 hover:scale-105" 
-                   alt="Warm interior apartment in Stockholm" 
+                   alt="Vardagsrum i Stockholm redo för tömning och värdering av dödsbo" 
                    style="filter: sepia(0.15) saturate(1.1);">
               
-              <!-- Mobile Curve Divider (White Hill Effect) with Shadow -->
               <div class="absolute bottom-[-1px] left-0 w-full lg:hidden z-20 leading-[0]">
                  <svg viewBox="0 0 100 12" preserveAspectRatio="none" class="w-full h-4 sm:h-6 block">
                     <defs>
@@ -87,19 +79,10 @@ import { ImageService } from '../../services/image.service';
                  </svg>
               </div>
             </div>
-            
-            <!-- Floating Icon (Hidden on mobile) -->
-            <div class="absolute -bottom-6 -left-6 bg-white dark:bg-surface-dark p-4 rounded-full shadow-xl border border-primary/10 dark:border-gray-700 hidden lg:block animate-bounce" style="animation-duration: 3s;">
-              <div class="bg-primary/10 rounded-full p-3 text-primary">
-                <span class="material-symbols-outlined text-3xl">home</span>
-              </div>
-            </div>
           </div>
-
         </div>
       </div>
       
-      <!-- Wave Divider (Bottom of section) -->
       <div class="absolute bottom-0 left-0 w-full overflow-hidden leading-[0]">
         <svg class="relative block w-[calc(100%+1.3px)] h-[60px]" preserveAspectRatio="none" viewBox="0 0 1200 120" xmlns="http://www.w3.org/2000/svg">
             <path class="fill-white dark:fill-surface-light dark:opacity-5" d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"></path>
@@ -133,7 +116,7 @@ import { ImageService } from '../../services/image.service';
             <div class="size-12 bg-primary/10 rounded-full flex items-center justify-center text-primary mb-6 group-hover:bg-primary group-hover:text-white transition-colors">
               <span class="material-symbols-outlined text-2xl">sell</span>
             </div>
-            <h4 class="text-xl font-bold text-text-main dark:text-white mb-3">Sälja Dödsbo</h4>
+            <h4 class="text-xl font-bold text-text-main dark:text-white mb-3">Uppköpare Dödsbo</h4>
             <p class="text-text-sub dark:text-gray-400 text-sm leading-relaxed mb-4">
                Vi köper upp säljbara föremål och drar av summan direkt på fakturan.
             </p>
@@ -180,12 +163,12 @@ import { ImageService } from '../../services/image.service';
                     <div class="text-center group">
                         <div class="w-20 h-20 mx-auto bg-primary text-white rounded-full flex items-center justify-center text-2xl font-serif font-bold mb-6 shadow-lg ring-4 ring-white dark:ring-background-dark group-hover:scale-110 transition-transform relative z-10">1</div>
                         <h4 class="text-lg font-bold text-text-main dark:text-white mb-2">Hembesök</h4>
-                        <p class="text-text-sub dark:text-gray-400 text-sm px-4">Vi kommer ut på ett kostnadsfritt besök för att titta på omfattningen.</p>
+                        <p class="text-text-sub dark:text-gray-400 text-sm px-4">Vi kommer ut på ett kostnadsfritt besök för att titta på omfattningen och värdera.</p>
                     </div>
                     <div class="text-center group">
                         <div class="w-20 h-20 mx-auto bg-white dark:bg-surface-dark border-2 border-primary text-primary rounded-full flex items-center justify-center text-2xl font-serif font-bold mb-6 shadow-md ring-4 ring-background-light dark:ring-background-dark group-hover:bg-primary group-hover:text-white transition-colors relative z-10">2</div>
                         <h4 class="text-lg font-bold text-text-main dark:text-white mb-2">Offert</h4>
-                        <p class="text-text-sub dark:text-gray-400 text-sm px-4">Du får en tydlig offert med fast pris där eventuellt uppköp är avdraget.</p>
+                        <p class="text-text-sub dark:text-gray-400 text-sm px-4">Du får en tydlig offert med fast pris där eventuellt uppköp av dödsboet är avdraget.</p>
                     </div>
                     <div class="text-center group">
                         <div class="w-20 h-20 mx-auto bg-white dark:bg-surface-dark border-2 border-primary text-primary rounded-full flex items-center justify-center text-2xl font-serif font-bold mb-6 shadow-md ring-4 ring-background-light dark:ring-background-dark group-hover:bg-primary group-hover:text-white transition-colors relative z-10">3</div>
@@ -214,7 +197,7 @@ import { ImageService } from '../../services/image.service';
                   Att hantera ett dödsbo innebär många praktiska och juridiska frågor. Vi på Dödsbopartner AB hjälper dig att navigera genom processen, men här är några begrepp som är bra att känna till.
               </p>
               <div class="relative rounded-lg overflow-hidden shadow-lg aspect-video mb-6 border border-[#F0EBE5] dark:border-gray-800">
-                <img [ngSrc]="images.get('documents')" fill class="object-cover grayscale hover:grayscale-0 transition-all duration-700" alt="Juridiska dokument">
+                <img [ngSrc]="images.get('documents')" fill class="object-cover grayscale hover:grayscale-0 transition-all duration-700" alt="Juridiska dokument för bouppteckning och fullmakter vid dödsfall">
               </div>
             </div>
           </div>
@@ -226,7 +209,7 @@ import { ImageService } from '../../services/image.service';
                 Vad innebär en bouppteckning?
               </h4>
               <p class="text-text-sub dark:text-gray-400 text-sm leading-relaxed">
-                  Bouppteckningen är en legitimationshandling för dödsboet. Den visar vem som har rätt att företräda boet och vilka tillgångar och skulder som finns. Det är ett viktigt dokument som krävs för att avsluta bankkonton och sälja fastigheter. Vi kan guida er till rätt partners om ni behöver juridisk hjälp.
+                  Bouppteckningen är en legitimationshandling för dödsboet. Den visar vem som har rätt att företräda boet och vilka tillgångar och skulder som finns. Det är ett viktigt dokument som krävs för att avsluta bankkonton och sälja fastigheter.
               </p>
             </div>
             <!-- Card 2 -->
@@ -236,7 +219,7 @@ import { ImageService } from '../../services/image.service';
                 Behövs en fullmakt?
               </h4>
               <p class="text-text-sub dark:text-gray-400 text-sm leading-relaxed">
-                  Om ni är flera dödsbodelägare men bara en ska sköta kontakten med oss, behövs ofta en fullmakt. Detta säkerställer att tömning och försäljning sker korrekt enligt alla delägares vilja. Vi tillhandahåller enkla mallar för detta vid behov.
+                  Om ni är flera dödsbodelägare men bara en ska sköta kontakten med oss, behövs ofta en fullmakt. Detta säkerställer att tömning och försäljning sker korrekt enligt alla delägares vilja.
               </p>
             </div>
             <!-- Card 3 -->
@@ -246,40 +229,12 @@ import { ImageService } from '../../services/image.service';
                 Miljö & Hållbarhet
               </h4>
               <p class="text-text-sub dark:text-gray-400 text-sm leading-relaxed">
-                  Vi strävar efter att så lite som möjligt ska hamna på tippen. Kläder, möbler och husgeråd som inte köps upp skänks i första hand till våra samarbetspartners inom välgörenhet. Det som återstår källsorteras noggrant.
+                  Vi strävar efter att så lite som möjligt ska hamna på tippen. Kläder, möbler och husgeråd som inte köps upp skänks i första hand till våra samarbetspartners inom välgörenhet.
               </p>
             </div>
           </div>
         </div>
       </div>
-    </section>
-    
-    <!-- Charity Section -->
-    <section class="bg-primary-light/30 dark:bg-primary/10 py-16 border-b border-[#F0EBE5] dark:border-gray-800">
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-col md:flex-row items-center justify-between gap-8">
-                <div class="flex-1">
-                    <h2 class="text-2xl md:text-3xl font-serif text-text-main dark:text-white mb-4">Välgörenhet & Återvinning</h2>
-                    <p class="text-text-sub dark:text-gray-300 text-lg mb-8 font-light max-w-xl">
-                        Dina saker kan göra nytta för andra. Vi samarbetar med flera hjälporganisationer i Stockholm för att säkerställa att funktionsdugliga föremål får ett nytt liv.
-                    </p>
-                    <div class="flex flex-wrap gap-4">
-                        <div class="bg-white dark:bg-surface-dark px-5 py-3 rounded-full text-sm font-semibold text-text-main dark:text-white shadow-sm border border-[#EBE5DE] dark:border-gray-700 flex items-center gap-2">
-                            <span class="material-symbols-outlined text-primary text-sm">volunteer_activism</span> Stadsmissionen
-                        </div>
-                        <div class="bg-white dark:bg-surface-dark px-5 py-3 rounded-full text-sm font-semibold text-text-main dark:text-white shadow-sm border border-[#EBE5DE] dark:border-gray-700 flex items-center gap-2">
-                            <span class="material-symbols-outlined text-primary text-sm">volunteer_activism</span> Röda Korset
-                        </div>
-                        <div class="bg-white dark:bg-surface-dark px-5 py-3 rounded-full text-sm font-semibold text-text-main dark:text-white shadow-sm border border-[#EBE5DE] dark:border-gray-700 flex items-center gap-2">
-                            <span class="material-symbols-outlined text-primary text-sm">eco</span> 100% Återvinning
-                        </div>
-                    </div>
-                </div>
-                <div class="w-full md:w-1/3 flex justify-center">
-                    <span class="material-symbols-outlined text-[140px] text-primary/30">spa</span>
-                </div>
-            </div>
-        </div>
     </section>
 
     <!-- Contact Section -->
@@ -316,16 +271,6 @@ import { ImageService } from '../../services/image.service';
                                 </div>
                             </div>
                         </div>
-                        <div class="mt-12">
-                            <div class="flex gap-4">
-                                <div class="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:bg-primary hover:border-primary transition-all cursor-pointer">
-                                    <span class="text-white text-xs font-bold">Fb</span>
-                                </div>
-                                <div class="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:bg-primary hover:border-primary transition-all cursor-pointer">
-                                    <span class="text-white text-xs font-bold">Ig</span>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                 </div>
                 <div class="p-10 md:w-3/5 bg-white dark:bg-surface-dark">
@@ -344,9 +289,40 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     this.seo.setSeoData({
-      title: 'Tömning & Värdering av Dödsbo',
-      description: 'Dödsbopartner AB hjälper er med helheten. Vi köper, tömmer och städar dödsbon i Stockholm och Uppsala. Kontakta oss för en kostnadsfri värdering.',
+      title: 'Dödsbopartner AB | Tömning, Städning & Uppköp av Dödsbo Stockholm',
+      description: 'Vi erbjuder helhetslösning för dödsbon. Vi är uppköpare av dödsbo och utför tömning samt flyttstädning med garanti i Stockholm & Uppsala. Fri värdering.',
       slug: ''
+    });
+
+    // Add LocalBusiness Schema
+    this.seo.setJsonLd({
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "Dödsbopartner AB",
+      "image": this.images.get('hero'),
+      "telephone": "08-123 45 67",
+      "email": "info@dodsbopartner.se",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Drottninggatan 12",
+        "addressLocality": "Stockholm",
+        "postalCode": "111 51",
+        "addressCountry": "SE"
+      },
+      "url": "https://www.dodsbopartner.se",
+      "priceRange": "$$",
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday"
+        ],
+        "opens": "08:00",
+        "closes": "18:00"
+      }
     });
   }
 }

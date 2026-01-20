@@ -10,10 +10,19 @@ import { SeoService } from '../../services/seo.service';
   imports: [CommonModule, RouterLink, ContactFormComponent],
   template: `
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 lg:py-12">
+      <!-- Breadcrumbs -->
+      <nav aria-label="Breadcrumb" class="mb-8">
+        <ol class="flex items-center gap-2 text-sm text-gray-500">
+          <li><a routerLink="/" class="hover:text-primary transition-colors">Start</a></li>
+          <li><span class="material-symbols-outlined text-base select-none">chevron_right</span></li>
+          <li><span class="text-text-main font-medium dark:text-white" aria-current="page">Tömning</span></li>
+        </ol>
+      </nav>
+
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 xl:gap-12">
         
         <!-- Main Content -->
-        <div class="lg:col-span-7 xl:col-span-8 space-y-16">
+        <article class="lg:col-span-7 xl:col-span-8 space-y-16">
           <section>
              <div class="inline-flex items-center gap-2 px-3 py-1 bg-blue-100 rounded-full text-blue-700 text-xs font-bold uppercase tracking-wider mb-4">
               <span class="material-symbols-outlined text-[16px]">inventory_2</span>
@@ -70,7 +79,7 @@ import { SeoService } from '../../services/seo.service';
                  <span class="material-symbols-outlined text-primary mt-1">check_circle</span>
                  <div>
                     <h4 class="font-bold text-text-main dark:text-white">Helhetslösning</h4>
-                    <p class="text-sm text-gray-600 dark:text-gray-400">Vi kan kombinera tömningen med städning och sanering.</p>
+                    <p class="text-sm text-gray-600 dark:text-gray-400">Vi kan kombinera tömningen med <a routerLink="/tjanster/flyttstadning" class="text-primary hover:underline">städning</a> och <a routerLink="/tjanster/sanering" class="text-primary hover:underline">sanering</a>.</p>
                  </div>
               </li>
               <li class="flex gap-4 items-start">
@@ -83,14 +92,14 @@ import { SeoService } from '../../services/seo.service';
             </ul>
           </section>
 
-        </div>
+        </article>
 
         <!-- Sidebar -->
-        <div class="lg:col-span-5 xl:col-span-4 mt-8 lg:mt-0">
+        <aside class="lg:col-span-5 xl:col-span-4 mt-8 lg:mt-0">
           <div class="sticky top-24">
             <app-contact-form />
           </div>
-        </div>
+        </aside>
 
       </div>
     </div>
@@ -102,9 +111,24 @@ export class EmptyingComponent implements OnInit {
 
   ngOnInit() {
     this.seo.setSeoData({
-      title: 'Tömning av Dödsbo Stockholm | Bortforsling & Återvinning',
-      description: 'Vi hjälper er med tömning av dödsbo i Stockholm. Vi sorterar, skänker till välgörenhet och kör till återvinning. Boka fri offert.',
+      title: 'Tömning Dödsbo Stockholm | Bortforsling & Återvinning',
+      description: 'Vi tömmer dödsbon effektivt och miljöriktigt. Sortering, packning och bortforsling till återvinning eller välgörenhet. Boka kostnadsfri offert.',
       slug: 'tjanster/tomning'
+    });
+
+    this.seo.setJsonLd({
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "serviceType": "Tömning av Dödsbo",
+      "provider": {
+        "@type": "LocalBusiness",
+        "name": "Dödsbopartner AB"
+      },
+      "areaServed": {
+        "@type": "City",
+        "name": "Stockholm"
+      },
+      "description": "Komplett tömning av dödsbon. Vi sorterar, återvinner och skänker till välgörenhet."
     });
   }
 }

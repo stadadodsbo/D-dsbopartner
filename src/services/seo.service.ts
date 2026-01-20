@@ -1,4 +1,4 @@
-import { Injectable, inject } from '@angular/core';
+import { Injectable, inject, Renderer2, RendererFactory2 } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
 import { DOCUMENT } from '@angular/common';
 import { ImageService } from './image.service';
@@ -17,13 +17,18 @@ export class SeoService {
   private titleService = inject(Title);
   private metaService = inject(Meta);
   private images = inject(ImageService);
-  // We use string typing for document to support SSR/SSG environments safely
   private dom = inject(DOCUMENT);
+  private rendererFactory = inject(RendererFactory2);
+  private renderer = this.rendererFactory.createRenderer(null, null);
 
   private readonly siteName = 'Dödsbopartner AB';
   private readonly baseUrl = 'https://www.dodsbopartner.se';
 
   setSeoData(config: SeoConfig) {
+    // 0. Reset Robots (in case we came from 404)
+    this.metaService.removeTag('name="robots"');
+    this.metaService.updateTag({ name: 'robots', content: 'index, follow' });
+
     // 1. Set the Browser Title
     const finalTitle = config.slug === '' 
       ? `${this.siteName} | ${config.title}`
@@ -54,6 +59,24 @@ export class SeoService {
 
     // 5. Update Canonical URL
     this.updateCanonicalUrl(url);
+  }
+
+  setNoIndex() {
+    this.metaService.updateTag({ name: 'robots', content: 'noindex, nofollow' });
+  }
+
+  setJsonLd(data: any) {
+    // Remove old schema if exists
+    const oldScript = this.dom.querySelector('script[type="application/ld+json"]');
+    if (oldScript) {
+      oldScript.remove();
+    }
+
+    // Inject new schema
+    const script = this.renderer.createElement('script');
+    script.type = 'application/ld+json';
+    script.text = JSON.stringify(data);
+    this.renderer.appendChild(this.dom.head, script);
   }
 
   private updateCanonicalUrl(url: string) {

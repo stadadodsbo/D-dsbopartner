@@ -9,16 +9,18 @@ import { ImageService } from '../../services/image.service';
   standalone: true,
   imports: [CommonModule, RouterLink, NgOptimizedImage],
   template: `
-    <main class="flex-grow">
+    <div class="w-full">
       
       <!-- === SECTION 1: FAQ HERO & ACCORDIONS === -->
       <section class="bg-gray-50 dark:bg-surface-dark py-12 lg:py-20 border-b border-gray-100 dark:border-gray-800 relative">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-8">
-            <div class="flex items-center gap-2 text-sm">
-              <a class="text-gray-500 hover:text-primary transition-colors font-medium" routerLink="/">Hem</a>
-              <span class="text-gray-400 material-symbols-outlined text-base">chevron_right</span>
-              <span class="text-text-main dark:text-white font-medium">Vanliga frågor</span>
-            </div>
+            <nav aria-label="Breadcrumb">
+              <ol class="flex items-center gap-2 text-sm">
+                <li><a class="text-gray-500 hover:text-primary transition-colors font-medium" routerLink="/">Hem</a></li>
+                <li><span class="text-gray-400 material-symbols-outlined text-base select-none">chevron_right</span></li>
+                <li><span class="text-text-main dark:text-white font-medium" aria-current="page">Vanliga frågor</span></li>
+              </ol>
+            </nav>
         </div>
 
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center mb-16">
@@ -175,14 +177,6 @@ import { ImageService } from '../../services/image.service';
 
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
                 <div class="lg:col-span-8 flex flex-col gap-10">
-                    <!-- Filters -->
-                    <div class="flex flex-wrap gap-3 pb-4 border-b border-border-light dark:border-gray-800">
-                        <button class="flex h-9 items-center justify-center px-5 rounded-full bg-text-main text-white text-sm font-medium transition-transform active:scale-95">Alla</button>
-                        <button class="flex h-9 items-center justify-center px-5 rounded-full bg-gray-50 dark:bg-surface-dark border border-gray-200 dark:border-gray-700 text-text-secondary dark:text-gray-300 hover:border-primary hover:text-primary text-sm font-medium transition-colors active:scale-95">Juridik</button>
-                        <button class="flex h-9 items-center justify-center px-5 rounded-full bg-gray-50 dark:bg-surface-dark border border-gray-200 dark:border-gray-700 text-text-secondary dark:text-gray-300 hover:border-primary hover:text-primary text-sm font-medium transition-colors active:scale-95">Praktiskt</button>
-                        <button class="flex h-9 items-center justify-center px-5 rounded-full bg-gray-50 dark:bg-surface-dark border border-gray-200 dark:border-gray-700 text-text-secondary dark:text-gray-300 hover:border-primary hover:text-primary text-sm font-medium transition-colors active:scale-95">Ekonomi</button>
-                    </div>
-
                     <!-- Featured Guide -->
                     <section>
                          <div class="flex items-center gap-2 mb-6">
@@ -248,12 +242,10 @@ import { ImageService } from '../../services/image.service';
                     <div class="bg-gray-50 dark:bg-surface-dark p-6 rounded-xl border border-gray-100 dark:border-gray-800">
                         <h4 class="font-bold text-text-main dark:text-white mb-4">Populära ämnen</h4>
                         <div class="flex flex-wrap gap-2">
-                             <span class="bg-white dark:bg-background-dark border border-gray-200 dark:border-gray-700 text-xs font-medium px-3 py-1.5 rounded-full text-text-secondary dark:text-gray-300">Bouppteckning</span>
-                             <span class="bg-white dark:bg-background-dark border border-gray-200 dark:border-gray-700 text-xs font-medium px-3 py-1.5 rounded-full text-text-secondary dark:text-gray-300">Skatteregler</span>
-                             <span class="bg-white dark:bg-background-dark border border-gray-200 dark:border-gray-700 text-xs font-medium px-3 py-1.5 rounded-full text-text-secondary dark:text-gray-300">RUT-avdrag</span>
-                             <span class="bg-white dark:bg-background-dark border border-gray-200 dark:border-gray-700 text-xs font-medium px-3 py-1.5 rounded-full text-text-secondary dark:text-gray-300">Värdering</span>
-                             <span class="bg-white dark:bg-background-dark border border-gray-200 dark:border-gray-700 text-xs font-medium px-3 py-1.5 rounded-full text-text-secondary dark:text-gray-300">Sälja Guld</span>
-                             <span class="bg-white dark:bg-background-dark border border-gray-200 dark:border-gray-700 text-xs font-medium px-3 py-1.5 rounded-full text-text-secondary dark:text-gray-300">Testamente</span>
+                             <a routerLink="/vanliga-fragor" class="bg-white dark:bg-background-dark border border-gray-200 dark:border-gray-700 text-xs font-medium px-3 py-1.5 rounded-full text-text-secondary dark:text-gray-300 hover:border-primary hover:text-primary transition-colors">Bouppteckning</a>
+                             <a routerLink="/vanliga-fragor" class="bg-white dark:bg-background-dark border border-gray-200 dark:border-gray-700 text-xs font-medium px-3 py-1.5 rounded-full text-text-secondary dark:text-gray-300 hover:border-primary hover:text-primary transition-colors">Skatteregler</a>
+                             <a routerLink="/tjanster/flyttstadning" class="bg-white dark:bg-background-dark border border-gray-200 dark:border-gray-700 text-xs font-medium px-3 py-1.5 rounded-full text-text-secondary dark:text-gray-300 hover:border-primary hover:text-primary transition-colors">RUT-avdrag</a>
+                             <a routerLink="/tjanster/salja-dodsbo" class="bg-white dark:bg-background-dark border border-gray-200 dark:border-gray-700 text-xs font-medium px-3 py-1.5 rounded-full text-text-secondary dark:text-gray-300 hover:border-primary hover:text-primary transition-colors">Värdering</a>
                         </div>
                     </div>
 
@@ -270,7 +262,7 @@ import { ImageService } from '../../services/image.service';
         </div>
       </section>
 
-    </main>
+    </div>
   `,
   changeDetection: ChangeDetectionStrategy.OnPush
 })

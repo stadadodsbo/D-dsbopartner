@@ -29,5 +29,7 @@ export class NotFoundComponent implements OnInit {
       description: 'Tyvärr kunde vi inte hitta sidan du sökte.',
       slug: '404'
     });
+    // Critical for SEO: Tell Google NOT to index this page
+    this.seo.setNoIndex();
   }
 }

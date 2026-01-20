@@ -10,9 +10,18 @@ import { SeoService } from '../../services/seo.service';
   imports: [CommonModule, RouterLink, ContactFormComponent],
   template: `
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 lg:py-12">
+      <!-- Breadcrumbs -->
+      <nav aria-label="Breadcrumb" class="mb-8">
+        <ol class="flex items-center gap-2 text-sm text-gray-500">
+          <li><a routerLink="/" class="hover:text-primary transition-colors">Start</a></li>
+          <li><span class="material-symbols-outlined text-base select-none">chevron_right</span></li>
+          <li><span class="text-text-main font-medium dark:text-white" aria-current="page">Sanering</span></li>
+        </ol>
+      </nav>
+
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 xl:gap-12">
         
-        <div class="lg:col-span-7 xl:col-span-8 space-y-16">
+        <article class="lg:col-span-7 xl:col-span-8 space-y-16">
           <section>
              <div class="inline-flex items-center gap-2 px-3 py-1 bg-orange-100 rounded-full text-orange-700 text-xs font-bold uppercase tracking-wider mb-4">
               <span class="material-symbols-outlined text-[16px]">sanitizer</span>
@@ -36,13 +45,13 @@ import { SeoService } from '../../services/seo.service';
                <p class="text-gray-600 dark:text-gray-400 mb-4">Vid behov hanterar vi bostäder som är i behov av kraftig rengöring eller röjning av stora mängder avfall (misärsanering).</p>
             </div>
           </section>
-        </div>
+        </article>
 
-        <div class="lg:col-span-5 xl:col-span-4 mt-8 lg:mt-0">
+        <aside class="lg:col-span-5 xl:col-span-4 mt-8 lg:mt-0">
           <div class="sticky top-24">
             <app-contact-form />
           </div>
-        </div>
+        </aside>
 
       </div>
     </div>
