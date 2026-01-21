@@ -21,7 +21,7 @@ export class SeoService {
   private rendererFactory = inject(RendererFactory2);
   private renderer = this.rendererFactory.createRenderer(null, null);
 
-  private readonly siteName = 'Dödsbopartner AB';
+  private readonly siteName = 'Dödsbopartner Stockholm AB';
   private readonly baseUrl = 'https://www.dodsbopartner.se';
 
   setSeoData(config: SeoConfig) {

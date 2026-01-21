@@ -54,10 +54,11 @@ import { SupabaseService } from '../../services/supabase.service';
                   <path d="M50 35C50 35 48 45 55 52" stroke="currentColor" stroke-linecap="round" stroke-width="3"></path>
                 </svg>
               </div>
-              <div class="flex flex-col md:flex-row md:items-baseline">
-                <h1 class="text-text-main dark:text-white text-xl font-bold tracking-widest uppercase">
+              <div class="flex flex-col">
+                <h1 class="text-text-main dark:text-white text-xl font-bold tracking-widest uppercase leading-none">
                   Dödsbo<span class="text-primary font-normal">Partner</span>
                 </h1>
+                <span class="text-[10px] text-text-sub dark:text-gray-400 font-medium tracking-[0.2em] uppercase leading-none mt-0.5">Stockholm AB</span>
               </div>
             </a>
           </div>
@@ -98,6 +99,12 @@ import { SupabaseService } from '../../services/supabase.service';
                      <div class="flex items-center gap-3">
                       <span class="material-symbols-outlined text-primary text-lg">sanitizer</span>
                       Sanering
+                    </div>
+                  </a>
+                  <a routerLink="/tjanster/grovsopor" class="block px-4 py-3 text-sm font-medium text-text-main dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-white/5 hover:text-primary transition-colors">
+                     <div class="flex items-center gap-3">
+                      <span class="material-symbols-outlined text-primary text-lg">delete_sweep</span>
+                      Grovsopor
                     </div>
                   </a>
                 </div>
@@ -152,6 +159,7 @@ import { SupabaseService } from '../../services/supabase.service';
                  <a routerLink="/tjanster/flyttstadning" (click)="closeMenu()" class="text-lg font-bold text-text-main hover:text-primary">Flyttstädning</a>
                  <a routerLink="/tjanster/salja-dodsbo" (click)="closeMenu()" class="text-lg font-bold text-text-main hover:text-primary">Sälja Dödsbo</a>
                  <a routerLink="/tjanster/sanering" (click)="closeMenu()" class="text-lg font-bold text-text-main hover:text-primary">Sanering</a>
+                 <a routerLink="/tjanster/grovsopor" (click)="closeMenu()" class="text-lg font-bold text-text-main hover:text-primary">Grovsopor</a>
                </div>
             </div>
 

@@ -148,6 +148,84 @@ import { ImageService } from '../../services/image.service';
       </div>
     </section>
 
+    <!-- Reviews Section -->
+    <section class="py-20 bg-background-light dark:bg-background-dark border-t border-[#F0EBE5] dark:border-gray-800">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+         <div class="text-center max-w-3xl mx-auto mb-16">
+          <h2 class="text-primary font-bold tracking-widest uppercase text-xs mb-3 border-b border-primary/20 inline-block pb-1">Omdömen</h2>
+          <h3 class="text-3xl md:text-4xl font-serif text-text-main dark:text-white mb-4">Vad våra kunder säger om oss</h3>
+          <p class="text-text-sub dark:text-gray-300 text-lg font-light">Vi strävar alltid efter nöjda kunder. Här är några röster från tidigare uppdrag.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- Review 1 -->
+            <div class="bg-white dark:bg-surface-dark p-8 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700 flex flex-col">
+                <div class="flex text-primary mb-4">
+                    <span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1">star</span>
+                    <span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1">star</span>
+                    <span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1">star</span>
+                    <span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1">star</span>
+                    <span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1">star</span>
+                </div>
+                <p class="text-text-sub dark:text-gray-300 italic mb-6 flex-grow">"Anlitade Dödsbopartner Stockholm AB för tömning av min mors lägenhet. Fantastiskt bemötande från start till mål. Killarna jobbade snabbt och effektivt."</p>
+                <div class="flex items-center gap-3">
+                    <div class="size-10 rounded-full bg-gray-200 dark:bg-gray-700 flex items-center justify-center font-bold text-gray-500">K</div>
+                    <div>
+                        <p class="font-bold text-sm text-text-main dark:text-white">Kerstin A.</p>
+                        <p class="text-xs text-gray-400">Stockholm</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Review 2 -->
+            <div class="bg-white dark:bg-surface-dark p-8 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700 flex flex-col">
+                <div class="flex text-primary mb-4">
+                    <span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1">star</span>
+                    <span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1">star</span>
+                    <span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1">star</span>
+                    <span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1">star</span>
+                    <span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1">star</span>
+                </div>
+                <p class="text-text-sub dark:text-gray-300 italic mb-6 flex-grow">"Väldigt nöjd med värderingen. Kändes tryggt och professionellt. Att de kunde kvitta kostnaden för städningen mot värdet av möblerna var supersmidigt."</p>
+                <div class="flex items-center gap-3">
+                    <div class="size-10 rounded-full bg-gray-200 dark:bg-gray-700 flex items-center justify-center font-bold text-gray-500">L</div>
+                    <div>
+                        <p class="font-bold text-sm text-text-main dark:text-white">Lars E.</p>
+                        <p class="text-xs text-gray-400">Uppsala</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Review 3 -->
+            <div class="bg-white dark:bg-surface-dark p-8 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700 flex flex-col">
+                <div class="flex text-primary mb-4">
+                    <span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1">star</span>
+                    <span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1">star</span>
+                    <span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1">star</span>
+                    <span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1">star</span>
+                    <span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1">star</span>
+                </div>
+                <p class="text-text-sub dark:text-gray-300 italic mb-6 flex-grow">"Otroligt skönt att få hjälp med både tömning och städning. Lägenheten blev godkänd av hyresvärden direkt. Rekommenderas varmt!"</p>
+                <div class="flex items-center gap-3">
+                    <div class="size-10 rounded-full bg-gray-200 dark:bg-gray-700 flex items-center justify-center font-bold text-gray-500">M</div>
+                    <div>
+                        <p class="font-bold text-sm text-text-main dark:text-white">Maria S.</p>
+                        <p class="text-xs text-gray-400">Södertälje</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-10 flex justify-center">
+            <div class="inline-flex items-center gap-2 px-4 py-2 bg-white dark:bg-surface-dark rounded-full border border-gray-100 dark:border-gray-700 shadow-sm">
+                <span class="text-sm font-bold text-text-main dark:text-white">4.8/5 i snittbetyg</span>
+                <span class="w-1 h-1 rounded-full bg-gray-300"></span>
+                <a href="#" class="text-sm text-primary hover:underline">Se fler omdömen</a>
+            </div>
+        </div>
+      </div>
+    </section>
+
     <!-- Process Section -->
     <section class="py-20 bg-background-light dark:bg-background-dark relative" id="process">
         <div class="absolute inset-0 opacity-[0.03] bg-[radial-gradient(#4A3C31_1px,transparent_1px)] [background-size:16px_16px]"></div>
@@ -194,7 +272,7 @@ import { ImageService } from '../../services/image.service';
               <h2 class="text-primary font-bold tracking-widest uppercase text-xs mb-3">Viktig information</h2>
               <h3 class="text-3xl font-serif text-text-main dark:text-white mb-6">Att tänka på vid dödsbohantering</h3>
               <p class="text-text-sub dark:text-gray-300 mb-8 leading-relaxed font-light text-lg">
-                  Att hantera ett dödsbo innebär många praktiska och juridiska frågor. Vi på Dödsbopartner AB hjälper dig att navigera genom processen, men här är några begrepp som är bra att känna till.
+                  Att hantera ett dödsbo innebär många praktiska och juridiska frågor. Vi på Dödsbopartner Stockholm AB hjälper dig att navigera genom processen, men här är några begrepp som är bra att känna till.
               </p>
               <div class="relative rounded-lg overflow-hidden shadow-lg aspect-video mb-6 border border-[#F0EBE5] dark:border-gray-800">
                 <img [ngSrc]="images.get('documents')" fill class="object-cover grayscale hover:grayscale-0 transition-all duration-700" alt="Juridiska dokument för bouppteckning och fullmakter vid dödsfall">
@@ -289,7 +367,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     this.seo.setSeoData({
-      title: 'Dödsbopartner AB | Tömning, Städning & Uppköp av Dödsbo Stockholm',
+      title: 'Dödsbopartner Stockholm AB | Tömning, Städning & Uppköp av Dödsbo',
       description: 'Vi erbjuder helhetslösning för dödsbon. Vi är uppköpare av dödsbo och utför tömning samt flyttstädning med garanti i Stockholm & Uppsala. Fri värdering.',
       slug: ''
     });
@@ -298,7 +376,7 @@ export class HomeComponent implements OnInit {
     this.seo.setJsonLd({
       "@context": "https://schema.org",
       "@type": "LocalBusiness",
-      "name": "Dödsbopartner AB",
+      "name": "Dödsbopartner Stockholm AB",
       "image": this.images.get('hero'),
       "telephone": "08-123 45 67",
       "email": "info@dodsbopartner.se",

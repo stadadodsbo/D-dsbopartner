@@ -272,7 +272,7 @@ export class FaqComponent implements OnInit {
 
   ngOnInit() {
     this.seo.setSeoData({
-      title: 'Vanliga frågor & svar | Dödsbopartner AB',
+      title: 'Vanliga frågor & svar | Dödsbopartner Stockholm AB',
       description: 'Här hittar du svar på vanliga frågor om tömning, värdering och städning av dödsbo. Läs våra guider och checklistor.',
       slug: 'vanliga-fragor'
     });

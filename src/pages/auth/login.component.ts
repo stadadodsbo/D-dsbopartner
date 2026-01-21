@@ -89,7 +89,7 @@ export class LoginComponent {
   isLoading = signal(false);
   errorMessage = signal<string | null>(null);
   
-  private fb = inject(FormBuilder);
+  private fb: FormBuilder = inject(FormBuilder);
   private supabase = inject(SupabaseService);
   private router = inject(Router);
   private seo = inject(SeoService);

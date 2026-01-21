@@ -1,13 +1,14 @@
 import { Component, ChangeDetectionStrategy, OnInit, inject } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { ContactFormComponent } from '../../components/contact-form/contact-form.component';
 import { SeoService } from '../../services/seo.service';
+import { ImageService } from '../../services/image.service';
 
 @Component({
   selector: 'app-emptying',
   standalone: true,
-  imports: [CommonModule, RouterLink, ContactFormComponent],
+  imports: [CommonModule, RouterLink, ContactFormComponent, NgOptimizedImage],
   template: `
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 lg:py-12">
       <!-- Breadcrumbs -->
@@ -34,6 +35,11 @@ import { SeoService } from '../../services/seo.service';
              <p class="text-lg sm:text-xl text-gray-600 dark:text-gray-300 leading-relaxed max-w-2xl">
               Vi tar hand om hela processen med att tömma bostaden. Oavsett om det gäller en lägenhet, villa eller ett förråd sköter vi sortering, packning och bortforsling.
             </p>
+            
+            <!-- Image inserted here as part of content -->
+            <div class="mt-8 relative w-full aspect-[16/9] rounded-2xl overflow-hidden shadow-lg border border-gray-100 dark:border-gray-800">
+                 <img [ngSrc]="images.get('emptying')" fill class="object-cover" alt="Flyttkartonger och tömning av bostad">
+            </div>
           </section>
 
           <!-- How it works -->
@@ -108,6 +114,7 @@ import { SeoService } from '../../services/seo.service';
 })
 export class EmptyingComponent implements OnInit {
   private seo = inject(SeoService);
+  protected images = inject(ImageService);
 
   ngOnInit() {
     this.seo.setSeoData({
@@ -122,7 +129,7 @@ export class EmptyingComponent implements OnInit {
       "serviceType": "Tömning av Dödsbo",
       "provider": {
         "@type": "LocalBusiness",
-        "name": "Dödsbopartner AB"
+        "name": "Dödsbopartner Stockholm AB"
       },
       "areaServed": {
         "@type": "City",

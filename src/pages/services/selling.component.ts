@@ -32,7 +32,7 @@ import { ImageService } from '../../services/image.service';
               Uppköpare av dödsbo i Stockholm
             </h1>
              <p class="text-lg sm:text-xl text-gray-600 dark:text-gray-300 leading-relaxed max-w-2xl">
-              Letar du efter en seriös <strong>uppköpare av dödsbon</strong>? På Dödsbopartner AB är vi experter på <strong>dödsbo köpes</strong> i hela Stockholmsregionen. Vi vet att försäljning av dödsbo kan vara en känslomässig process, och därför erbjuder vi en smidig helhetslösning.
+              Letar du efter en seriös <strong>uppköpare av dödsbon</strong>? På Dödsbopartner Stockholm AB är vi experter på <strong>dödsbo köpes</strong> i hela Stockholmsregionen. Vi vet att försäljning av dödsbo kan vara en känslomässig process, och därför erbjuder vi en smidig helhetslösning.
             </p>
           </section>
 
@@ -126,7 +126,7 @@ export class SellingComponent implements OnInit {
       "serviceType": "Uppköpare av Dödsbo",
       "provider": {
         "@type": "LocalBusiness",
-        "name": "Dödsbopartner AB"
+        "name": "Dödsbopartner Stockholm AB"
       },
       "areaServed": {
         "@type": "City",

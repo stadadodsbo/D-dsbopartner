@@ -77,8 +77,8 @@ import { ImageService } from '../../services/image.service';
           <div class="sticky top-24">
             <app-contact-form />
             
-            <div class="mt-8 rounded-xl overflow-hidden shadow-md">
-                 <img [ngSrc]="images.get('hero')" fill class="object-cover" alt="Flyttstädning av dödsbo i Stockholm kök">
+            <div class="mt-8 relative w-full aspect-[4/3] rounded-xl overflow-hidden shadow-md">
+                 <img [ngSrc]="images.get('cleaning')" fill class="object-cover" alt="Flyttstädning av dödsbo i Stockholm kök">
             </div>
           </div>
         </aside>
@@ -105,7 +105,7 @@ export class CleaningComponent implements OnInit {
       "serviceType": "Flyttstädning",
       "provider": {
         "@type": "LocalBusiness",
-        "name": "Dödsbopartner AB"
+        "name": "Dödsbopartner Stockholm AB"
       },
       "areaServed": {
         "@type": "City",

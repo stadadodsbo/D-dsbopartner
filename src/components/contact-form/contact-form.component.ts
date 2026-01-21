@@ -117,7 +117,7 @@ import { SupabaseService } from '../../services/supabase.service';
 })
 export class ContactFormComponent {
   embedded = input(false);
-  private fb = inject(FormBuilder);
+  private fb: FormBuilder = inject(FormBuilder);
   private supabase = inject(SupabaseService);
   
   contactForm: FormGroup;

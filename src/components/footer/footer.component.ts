@@ -23,7 +23,10 @@ import { RouterLink } from '@angular/router';
                   <path d="M50 35C50 35 48 45 55 52" stroke="currentColor" stroke-linecap="round" stroke-width="3"></path>
                 </svg>
                </div>
-               <span class="text-text-main font-bold text-lg uppercase tracking-wide">Dödsbopartner AB</span>
+               <div class="flex flex-col">
+                  <span class="text-text-main font-bold text-lg uppercase tracking-wide leading-none">Dödsbopartner</span>
+                  <span class="text-text-main font-medium text-[9px] uppercase tracking-wider leading-none mt-0.5">Stockholm AB</span>
+               </div>
             </div>
             
             <p class="text-text-sub text-sm leading-relaxed max-w-xs text-[#666]">
@@ -45,10 +48,11 @@ import { RouterLink } from '@angular/router';
           <div>
             <h4 class="text-text-main font-bold text-sm uppercase tracking-wider mb-8">Tjänster</h4>
             <ul class="space-y-4">
-              <li><a routerLink="/" fragment="tjanster" class="text-text-sub text-sm hover:text-primary transition-colors">Värdering av dödsbo</a></li>
-              <li><a routerLink="/" fragment="tjanster" class="text-text-sub text-sm hover:text-primary transition-colors">Tömning av dödsbo</a></li>
-              <li><a routerLink="/" fragment="tjanster" class="text-text-sub text-sm hover:text-primary transition-colors">Dödsbo flyttstädning</a></li>
-              <li><a routerLink="/" fragment="tjanster" class="text-text-sub text-sm hover:text-primary transition-colors">Sanering dödsbo</a></li>
+              <li><a routerLink="/tjanster/salja-dodsbo" class="text-text-sub text-sm hover:text-primary transition-colors">Värdering av dödsbo</a></li>
+              <li><a routerLink="/tjanster/tomning" class="text-text-sub text-sm hover:text-primary transition-colors">Tömning av dödsbo</a></li>
+              <li><a routerLink="/tjanster/flyttstadning" class="text-text-sub text-sm hover:text-primary transition-colors">Dödsbo flyttstädning</a></li>
+              <li><a routerLink="/tjanster/sanering" class="text-text-sub text-sm hover:text-primary transition-colors">Sanering dödsbo</a></li>
+              <li><a routerLink="/tjanster/grovsopor" class="text-text-sub text-sm hover:text-primary transition-colors">Hämtning av grovsopor</a></li>
             </ul>
           </div>
 
@@ -86,7 +90,7 @@ import { RouterLink } from '@angular/router';
 
         <!-- Bottom Bar -->
         <div class="border-t border-gray-100 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p class="text-[#9CA3AF] text-xs">© 2024 Dödsbopartner AB. Alla rättigheter reserverade.</p>
+          <p class="text-[#9CA3AF] text-xs">© 2024 Dödsbopartner Stockholm AB. Alla rättigheter reserverade.</p>
           <div class="flex gap-8 text-[#9CA3AF] text-xs">
             <a href="#" class="hover:text-primary transition-colors">Integritetspolicy</a>
             <a href="#" class="hover:text-primary transition-colors">Villkor</a>

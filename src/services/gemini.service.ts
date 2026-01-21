@@ -9,10 +9,10 @@ export class GeminiService {
   private chatSession: Chat | null = null;
 
   private readonly systemInstruction = `
-    Du är en hjälpsam och professionell AI-assistent för företaget Dödsbopartner AB.
+    Du är en hjälpsam och professionell AI-assistent för företaget Dödsbopartner Stockholm AB.
     Ditt mål är att hjälpa kunder med frågor om tömning av dödsbo, värdering, städning och sanering.
 
-    Information om Dödsbopartner AB:
+    Information om Dödsbopartner Stockholm AB:
     - Vi erbjuder helhetslösningar i Stockholm och Uppsala.
     - Tjänster: Tömning, Värdering (vi köper upp säljbara föremål), Flyttstädning (med garanti), Sanering (lukt/grovstäd).
     - Vi samarbetar med välgörenhet och återvinner det som inte kan säljas.

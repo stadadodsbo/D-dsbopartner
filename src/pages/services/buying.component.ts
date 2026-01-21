@@ -1,13 +1,14 @@
 import { Component, ChangeDetectionStrategy, OnInit, inject } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { ContactFormComponent } from '../../components/contact-form/contact-form.component';
 import { SeoService } from '../../services/seo.service';
+import { ImageService } from '../../services/image.service';
 
 @Component({
   selector: 'app-buying',
   standalone: true,
-  imports: [CommonModule, RouterLink, ContactFormComponent],
+  imports: [CommonModule, RouterLink, ContactFormComponent, NgOptimizedImage],
   template: `
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 lg:py-12">
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 xl:gap-12">
@@ -63,7 +64,7 @@ import { SeoService } from '../../services/seo.service';
                 <thead class="bg-gray-50 dark:bg-surface-dark text-gray-700 dark:text-gray-300">
                   <tr>
                     <th class="px-6 py-4 font-semibold text-text-main dark:text-white">Fördel</th>
-                    <th class="px-6 py-4 font-bold text-primary">Dödsbopartner AB</th>
+                    <th class="px-6 py-4 font-bold text-primary">Dödsbopartner Stockholm AB</th>
                     <th class="px-6 py-4 font-medium text-gray-500">Auktionshus</th>
                   </tr>
                 </thead>
@@ -98,6 +99,10 @@ import { SeoService } from '../../services/seo.service';
                 <p class="text-sm text-gray-600 mb-4">Vi kommer hem till er och gör en bedömning på plats. Helt utan förbindelser.</p>
             </div>
             <app-contact-form />
+            
+            <div class="mt-8 relative w-full aspect-[4/3] rounded-xl overflow-hidden shadow-md">
+                 <img [ngSrc]="images.get('buying')" fill class="object-cover" alt="Antika möbler och föremål">
+            </div>
           </div>
         </div>
 
@@ -108,6 +113,7 @@ import { SeoService } from '../../services/seo.service';
 })
 export class BuyingComponent implements OnInit {
   private seo = inject(SeoService);
+  protected images = inject(ImageService);
 
   ngOnInit() {
     this.seo.setSeoData({

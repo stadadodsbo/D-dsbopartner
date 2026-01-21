@@ -127,7 +127,7 @@ import { ImageService } from '../../services/image.service';
                 <thead class="bg-gray-50 dark:bg-surface-dark text-gray-700 dark:text-gray-300">
                   <tr>
                     <th class="px-6 py-4 font-semibold text-text-main dark:text-white">Tjänst</th>
-                    <th class="px-6 py-4 font-bold text-primary">Dödsbopartner AB</th>
+                    <th class="px-6 py-4 font-bold text-primary">Dödsbopartner Stockholm AB</th>
                     <th class="px-6 py-4 font-medium text-gray-500">Vanlig Pantbank</th>
                   </tr>
                 </thead>
