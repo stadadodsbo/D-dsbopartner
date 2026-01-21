@@ -34,6 +34,11 @@ import { ImageService } from '../../services/image.service';
              <p class="text-lg sm:text-xl text-gray-600 dark:text-gray-300 leading-relaxed max-w-2xl">
               Letar du efter en seriös <strong>uppköpare av dödsbon</strong>? På Dödsbopartner Stockholm AB är vi experter på <strong>dödsbo köpes</strong> i hela Stockholmsregionen. Vi vet att försäljning av dödsbo kan vara en känslomässig process, och därför erbjuder vi en smidig helhetslösning.
             </p>
+
+            <!-- Image inserted here as part of content -->
+            <div class="mt-8 relative w-full aspect-[16/9] rounded-2xl overflow-hidden shadow-lg border border-gray-100 dark:border-gray-800">
+                 <img [ngSrc]="images.get('buying')" fill class="object-cover" alt="Uppköp och värdering av dödsbo i Stockholm">
+            </div>
           </section>
 
           <section>
@@ -112,6 +117,7 @@ import { ImageService } from '../../services/image.service';
 })
 export class SellingComponent implements OnInit {
   private seo = inject(SeoService);
+  protected images = inject(ImageService);
 
   ngOnInit() {
     this.seo.setSeoData({

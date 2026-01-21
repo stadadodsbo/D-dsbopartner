@@ -20,9 +20,9 @@ export class ImageService {
     // Service Specific Images
     waste: 'https://zpevjmmribzjvtmaxghl.supabase.co/storage/v1/object/public/images/Dodsbopartner-stockholm-tjanster-grovsopor.jpg',
     emptying: 'https://zpevjmmribzjvtmaxghl.supabase.co/storage/v1/object/public/images/Dodsbopartner-stockholm-flytthjalp.jpg',
-    buying: 'https://images.unsplash.com/photo-1556228453-efd6c1ff04f6?q=80&w=600&auto=format&fit=crop',
-    remediation: 'https://images.unsplash.com/photo-1584622050111-993a426fbf0a?q=80&w=600&auto=format&fit=crop',
-    cleaning: 'https://images.unsplash.com/photo-1581578731117-104f2a863a30?q=80&w=600&auto=format&fit=crop',
+    buying: 'https://zpevjmmribzjvtmaxghl.supabase.co/storage/v1/object/public/images/Dodsbopartner-stockholm-salja-dodsbo.jpg',
+    remediation: 'https://zpevjmmribzjvtmaxghl.supabase.co/storage/v1/object/public/images/Dodsbopartner-stockholm-sanering.jpg',
+    cleaning: 'https://zpevjmmribzjvtmaxghl.supabase.co/storage/v1/object/public/images/Dodsbopartner-stockholm-flyttstadning.jpg',
 
     // Blog/Guide Images
     guideFullmakt: 'https://lh3.googleusercontent.com/aida-public/AB6AXuB4i2nscgYfOiS_BLoFn0DJbBS4aOPFqIxUj8GPcUxz7a74ricXYAzSQt149pEOcg4FT4aXYd1O4OHezn4jM2tSPiAIJ1FGIxxP87AicALxh272eJyhmEEZ0o6v_J-YZ6X7rZxbjrNAKiCmqp1mbgkEZTAfJb-xz0P5CCs5hqPWoUVcd8JIz50lQkwo3ffZVeF-FCq3BFIkLHVP0xmmT_Rc36tuW2bG0yJrSPpBROH59KbBGoeIAdcZmGr3EFPVZvQX0AC0lRAuCnEJ',

@@ -35,6 +35,11 @@ import { ImageService } from '../../services/image.service';
              <p class="text-lg sm:text-xl text-gray-600 dark:text-gray-300 leading-relaxed max-w-2xl">
               Ibland räcker det inte med en vanlig städning. Vi utför avancerad <strong>sanering av dödsbo</strong>, inklusive luktsanering, nikotinsanering och grovstädning vid svåra förhållanden (misär). Vi arbetar alltid med största diskretion och respekt.
             </p>
+
+            <!-- Image inserted here as part of content -->
+            <div class="mt-8 relative w-full aspect-[16/9] rounded-2xl overflow-hidden shadow-lg border border-gray-100 dark:border-gray-800">
+                 <img [ngSrc]="images.get('remediation')" fill class="object-cover" alt="Sanering och städning av bostad">
+            </div>
           </section>
 
           <!-- Service Grid -->
@@ -139,10 +144,6 @@ import { ImageService } from '../../services/image.service';
               </p>
             </div>
             <app-contact-form />
-            
-            <div class="mt-8 relative w-full aspect-[4/3] rounded-xl overflow-hidden shadow-md">
-                 <img [ngSrc]="images.get('remediation')" fill class="object-cover" alt="Sanering och städning av bostad">
-            </div>
           </div>
         </aside>
 

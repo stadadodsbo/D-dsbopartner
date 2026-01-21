@@ -34,6 +34,11 @@ import { ImageService } from '../../services/image.service';
              <p class="text-lg sm:text-xl text-gray-600 dark:text-gray-300 leading-relaxed max-w-2xl">
               Vi utför professionell <strong>flyttstädning av dödsbo</strong> med fokus på noggrannhet och respekt. Att städa ur en bostad efter en bortgång är tungt, och kraven från hyresvärdar och köpare är höga.
             </p>
+
+            <!-- Image inserted here as part of content -->
+            <div class="mt-8 relative w-full aspect-[16/9] rounded-2xl overflow-hidden shadow-lg border border-gray-100 dark:border-gray-800">
+                 <img [ngSrc]="images.get('cleaning')" fill class="object-cover" alt="Noggrann flyttstädning av dödsbo i Stockholm kök">
+            </div>
           </section>
 
           <section>
@@ -76,10 +81,6 @@ import { ImageService } from '../../services/image.service';
         <aside class="lg:col-span-5 xl:col-span-4 mt-8 lg:mt-0">
           <div class="sticky top-24">
             <app-contact-form />
-            
-            <div class="mt-8 relative w-full aspect-[4/3] rounded-xl overflow-hidden shadow-md">
-                 <img [ngSrc]="images.get('cleaning')" fill class="object-cover" alt="Flyttstädning av dödsbo i Stockholm kök">
-            </div>
           </div>
         </aside>
 
