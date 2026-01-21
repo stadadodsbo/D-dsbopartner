@@ -99,7 +99,7 @@ import { ImageService } from '../../services/image.service';
           <p class="text-text-sub dark:text-gray-300 text-lg font-light">Vi anpassar oss efter dina behov. Oavsett om du behöver hjälp med enstaka delar eller hela processen finns vi här.</p>
         </div>
         
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
           <!-- Card 1: Tömning -->
           <a routerLink="/tjanster/tomning" class="bg-background-light dark:bg-surface-dark rounded-xl p-8 border border-[#F0EBE5] dark:border-gray-800 hover:border-primary/30 transition-all group hover:-translate-y-1 duration-300 shadow-sm hover:shadow-md cursor-pointer">
             <div class="size-12 bg-primary/10 rounded-full flex items-center justify-center text-primary mb-6 group-hover:bg-primary group-hover:text-white transition-colors">
@@ -141,6 +141,17 @@ import { ImageService } from '../../services/image.service';
             <h4 class="text-xl font-bold text-text-main dark:text-white mb-3">Sanering</h4>
             <p class="text-text-sub dark:text-gray-400 text-sm leading-relaxed mb-4">
                Luktsanering och grovstädning vid svåra förhållanden. Vi hanterar det med diskretion.
+            </p>
+            <span class="text-primary text-sm font-bold flex items-center gap-1 group-hover:gap-2 transition-all">Läs mer <span class="material-symbols-outlined text-sm">arrow_forward</span></span>
+          </a>
+          <!-- Card 5: Grovsopor -->
+          <a routerLink="/tjanster/grovsopor" class="bg-background-light dark:bg-surface-dark rounded-xl p-8 border border-[#F0EBE5] dark:border-gray-800 hover:border-primary/30 transition-all group hover:-translate-y-1 duration-300 shadow-sm hover:shadow-md cursor-pointer">
+            <div class="size-12 bg-primary/10 rounded-full flex items-center justify-center text-primary mb-6 group-hover:bg-primary group-hover:text-white transition-colors">
+              <span class="material-symbols-outlined text-2xl">delete_sweep</span>
+            </div>
+            <h4 class="text-xl font-bold text-text-main dark:text-white mb-3">Grovsopor</h4>
+            <p class="text-text-sub dark:text-gray-400 text-sm leading-relaxed mb-4">
+               Vi hämtar och forslar bort gamla möbler och skräp. Slipp tunga lyft och köer.
             </p>
             <span class="text-primary text-sm font-bold flex items-center gap-1 group-hover:gap-2 transition-all">Läs mer <span class="material-symbols-outlined text-sm">arrow_forward</span></span>
           </a>
