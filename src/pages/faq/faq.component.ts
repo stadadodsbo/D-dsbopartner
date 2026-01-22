@@ -28,10 +28,10 @@ import { ImageService } from '../../services/image.service';
              Support &amp; Svar
           </span>
           <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black text-text-main dark:text-white mb-6 tracking-tight">
-            Vanliga frågor
+            Bouppteckning & Fullmakter
           </h1>
           <p class="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto leading-relaxed">
-            Här har vi samlat svar på de vanligaste frågorna vi får gällande hantering av dödsbon, värdering och praktiska detaljer.
+            Här har vi samlat svar på de vanligaste frågorna om <strong>bouppteckning dödsbo</strong>, <strong>fullmakter dödsbo</strong> och <strong>bodelning dödsbo</strong>.
           </p>
         </div>
 
@@ -42,21 +42,31 @@ import { ImageService } from '../../services/image.service';
             <div class="lg:col-span-2 space-y-4">
               <details class="group bg-white dark:bg-surface-dark border border-gray-100 dark:border-gray-800 rounded-xl overflow-hidden shadow-sm">
                 <summary class="flex items-center justify-between p-6 cursor-pointer list-none">
-                  <h3 class="text-lg font-bold text-text-main dark:text-white group-hover:text-primary transition-colors">Vad är en Bouppteckning?</h3>
+                  <h3 class="text-lg font-bold text-text-main dark:text-white group-hover:text-primary transition-colors">Vad är en Bouppteckning dödsbo?</h3>
                   <span class="expand-icon material-symbols-outlined text-primary transition-transform duration-300">expand_more</span>
                 </summary>
                 <div class="px-6 pb-6 text-gray-600 dark:text-gray-400 leading-relaxed">
-                  En bouppteckning är en skriftlig sammanställning över samtliga tillgångar och skulder som fanns i ett dödsbo vid tidpunkten för dödsfallet. Den fungerar som dödsboets legitimationshandling och krävs för att kunna avsluta konton eller sälja fastigheter. Vi kan guida er vidare till juridisk expertis om ni behöver hjälp med själva upprättandet.
+                  En <strong>bouppteckning dödsbo</strong> är en skriftlig sammanställning över samtliga tillgångar och skulder som fanns vid tidpunkten för dödsfallet. Den fungerar som dödsboets legitimationshandling och krävs för att kunna avsluta konton eller sälja fastigheter. Vi kan guida er vidare till juridisk expertis.
                 </div>
               </details>
 
               <details class="group bg-white dark:bg-surface-dark border border-gray-100 dark:border-gray-800 rounded-xl overflow-hidden shadow-sm">
                 <summary class="flex items-center justify-between p-6 cursor-pointer list-none">
-                  <h3 class="text-lg font-bold text-text-main dark:text-white group-hover:text-primary transition-colors">Hur fungerar Fullmakt för dödsbo?</h3>
+                  <h3 class="text-lg font-bold text-text-main dark:text-white group-hover:text-primary transition-colors">Hur fungerar Fullmakter dödsbo?</h3>
                   <span class="expand-icon material-symbols-outlined text-primary transition-transform duration-300">expand_more</span>
                 </summary>
                 <div class="px-6 pb-6 text-gray-600 dark:text-gray-400 leading-relaxed">
-                  För att en person ska kunna företräda dödsboet och skriva under avtal krävs oftast en fullmakt från samtliga dödsbodelägare. Detta är särskilt viktigt vid försäljning av bohag eller när vi ska hämta ut nycklar. Vi kan tillhandahålla mallar för de fullmakter som behövs för vår hantering.
+                  För att en person ska kunna företräda dödsboet och skriva under avtal krävs oftast <strong>fullmakter dödsbo</strong> från samtliga dödsbodelägare. Detta är särskilt viktigt vid försäljning av bohag eller när vi ska hämta ut nycklar. Vi kan tillhandahålla mallar.
+                </div>
+              </details>
+
+              <details class="group bg-white dark:bg-surface-dark border border-gray-100 dark:border-gray-800 rounded-xl overflow-hidden shadow-sm">
+                <summary class="flex items-center justify-between p-6 cursor-pointer list-none">
+                  <h3 class="text-lg font-bold text-text-main dark:text-white group-hover:text-primary transition-colors">När görs bodelning dödsbo?</h3>
+                  <span class="expand-icon material-symbols-outlined text-primary transition-transform duration-300">expand_more</span>
+                </summary>
+                <div class="px-6 pb-6 text-gray-600 dark:text-gray-400 leading-relaxed">
+                  <strong>Bodelning dödsbo</strong> görs normalt innan arvskiftet om den avlidne var gift eller sambo. Det innebär att man delar upp egendomen mellan den efterlevande och dödsboet.
                 </div>
               </details>
 
@@ -77,16 +87,6 @@ import { ImageService } from '../../services/image.service';
                 </summary>
                 <div class="px-6 pb-6 text-gray-600 dark:text-gray-400 leading-relaxed">
                   Vår städningsgaranti innebär att vi garanterar att flyttstädningen godkänns av nästa hyresgäst eller köpare. Om det mot förmodan skulle finnas anmärkningar åtgärdar vi dessa kostnadsfritt inom 24-48 timmar. Vi följer Mäklarsamfundets strikta riktlinjer för flyttstädning.
-                </div>
-              </details>
-
-              <details class="group bg-white dark:bg-surface-dark border border-gray-100 dark:border-gray-800 rounded-xl overflow-hidden shadow-sm">
-                <summary class="flex items-center justify-between p-6 cursor-pointer list-none">
-                  <h3 class="text-lg font-bold text-text-main dark:text-white group-hover:text-primary transition-colors">Kan jag använda RUT-avdrag?</h3>
-                  <span class="expand-icon material-symbols-outlined text-primary transition-transform duration-300">expand_more</span>
-                </summary>
-                <div class="px-6 pb-6 text-gray-600 dark:text-gray-400 leading-relaxed">
-                  Ja, för de tjänster som innefattar flytt och städning kan dödsboet i vissa fall nyttja RUT-avdrag, förutsatt att skattereduktionen inte redan nyttjats av den avlidne under året. Vi hjälper er att reda ut vad som gäller i just ert fall och sköter administrationen mot Skatteverket.
                 </div>
               </details>
 
@@ -167,7 +167,7 @@ import { ImageService } from '../../services/image.service';
               </div>
               <div class="hidden lg:block relative h-[300px] w-full rounded-2xl overflow-hidden shadow-lg group">
                 <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent z-10"></div>
-                <img [ngSrc]="images.get('guideHero')" fill class="object-cover transform group-hover:scale-105 transition-transform duration-700" alt="Calm living room">
+                <img [ngSrc]="images.get('guideHero')" fill class="object-cover transform group-hover:scale-105 transition-transform duration-700" alt="Städat och tömt vardagsrum efter dödsbohantering">
                 <div class="absolute bottom-6 left-6 z-20">
                   <span class="bg-primary/90 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider mb-2 inline-block">Mest läst just nu</span>
                   <h3 class="text-white text-xl font-bold">Checklista vid dödsfall – Steg för steg</h3>
@@ -186,7 +186,7 @@ import { ImageService } from '../../services/image.service';
                         <div class="bg-gray-50 dark:bg-surface-dark rounded-2xl overflow-hidden border border-gray-100 dark:border-gray-800 shadow-sm hover:shadow-md transition-shadow group cursor-pointer">
                             <div class="grid md:grid-cols-2 gap-0">
                                 <div class="relative min-h-[240px] w-full">
-                                   <img [ngSrc]="images.get('guideFullmakt')" fill class="object-cover" alt="Writing a contract">
+                                   <img [ngSrc]="images.get('guideFullmakt')" fill class="object-cover" alt="Ifyllnad av fullmakt för dödsbo och bouppteckning">
                                 </div>
                                 <div class="p-8 flex flex-col justify-center gap-4">
                                      <div class="flex gap-2">
@@ -213,7 +213,7 @@ import { ImageService } from '../../services/image.service';
                             <!-- Article 1 -->
                             <a routerLink="/tjanster/tomning" class="group flex gap-4 items-start p-4 rounded-xl hover:bg-gray-50 dark:hover:bg-surface-dark transition-colors border border-transparent hover:border-gray-100 dark:hover:border-gray-800">
                                 <div class="relative w-24 h-24 rounded-lg overflow-hidden shrink-0">
-                                     <img [ngSrc]="images.get('articleEmptying')" fill class="object-cover group-hover:scale-110 transition-transform duration-500" alt="Moving boxes">
+                                     <img [ngSrc]="images.get('articleEmptying')" fill class="object-cover group-hover:scale-110 transition-transform duration-500" alt="Flyttkartonger redo för tömning av dödsbo">
                                 </div>
                                 <div>
                                      <span class="text-[10px] font-bold tracking-wider text-primary uppercase mb-1 block">Praktiskt</span>
@@ -225,7 +225,7 @@ import { ImageService } from '../../services/image.service';
                              <!-- Article 2 -->
                             <a routerLink="/tjanster/salja-dodsbo" class="group flex gap-4 items-start p-4 rounded-xl hover:bg-gray-50 dark:hover:bg-surface-dark transition-colors border border-transparent hover:border-gray-100 dark:hover:border-gray-800">
                                 <div class="relative w-24 h-24 rounded-lg overflow-hidden shrink-0">
-                                     <img [ngSrc]="images.get('articleBouppteckning')" fill class="object-cover group-hover:scale-110 transition-transform duration-500" alt="Legal documents">
+                                     <img [ngSrc]="images.get('articleBouppteckning')" fill class="object-cover group-hover:scale-110 transition-transform duration-500" alt="Juridiska dokument och papper för bouppteckning">
                                 </div>
                                 <div>
                                      <span class="text-[10px] font-bold tracking-wider text-primary uppercase mb-1 block">Juridik</span>
@@ -272,8 +272,8 @@ export class FaqComponent implements OnInit {
 
   ngOnInit() {
     this.seo.setSeoData({
-      title: 'Vanliga frågor & svar | Dödsbopartner Stockholm AB',
-      description: 'Här hittar du svar på vanliga frågor om tömning, värdering och städning av dödsbo. Läs våra guider och checklistor.',
+      title: 'Bouppteckning & Fullmakter Dödsbo | Vanliga Frågor',
+      description: 'Här hittar du svar på frågor om bouppteckning dödsbo, fullmakter dödsbo och bodelning. Läs våra guider och checklistor.',
       slug: 'vanliga-fragor'
     });
   }

@@ -18,11 +18,11 @@ export class ImageService {
     silver: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBjPcrXLkPduAY0-ylCQDs4hqu9Sn0NqzSlYCMOLZpwOey21U576E0-1hL71oklFUwqGAGvhf7m66ndPeGPCcKP3FEl8aRhkNjii2m4S3JK4Ed76cjgB5v9Kan2qskLuQkcEcBqIQyuIgx9bjz1qdIvObQ4yrkbGaXalueRzo27gXCeKkdnS5SFltU7_hzuTjQ659JRR38fpQ5wHWQLw2zg1eGqtUQVc76vjGEa8dCratChpV_uGWQlBO-bzUacP8lldhaAvJKMKWtl',
     
     // Service Specific Images
-    waste: 'https://zpevjmmribzjvtmaxghl.supabase.co/storage/v1/object/public/images/Dodsbopartner-stockholm-tjanster-grovsopor.jpg',
-    emptying: 'https://zpevjmmribzjvtmaxghl.supabase.co/storage/v1/object/public/images/Dodsbopartner-stockholm-flytthjalp.jpg',
-    buying: 'https://zpevjmmribzjvtmaxghl.supabase.co/storage/v1/object/public/images/Dodsbopartner-stockholm-salja-dodsbo.jpg',
-    remediation: 'https://zpevjmmribzjvtmaxghl.supabase.co/storage/v1/object/public/images/Dodsbopartner-stockholm-sanering.jpg',
-    cleaning: 'https://zpevjmmribzjvtmaxghl.supabase.co/storage/v1/object/public/images/Dodsbopartner-stockholm-flyttstadning.jpg',
+    waste: 'https://zpevjmmribzjvtmaxghl.supabase.co/storage/v1/object/public/images/dodsbopartner-stockholm-tjanster-grovsopor.jpg',
+    emptying: 'https://zpevjmmribzjvtmaxghl.supabase.co/storage/v1/object/public/images/dodsbopartner-stockholm-flytthjalp.jpg',
+    buying: 'https://zpevjmmribzjvtmaxghl.supabase.co/storage/v1/object/public/images/dodsbopartner-stockholm-salja-dodsbo.jpg',
+    remediation: 'https://zpevjmmribzjvtmaxghl.supabase.co/storage/v1/object/public/images/dodsbopartner-stockholm-sanering.jpg',
+    cleaning: 'https://zpevjmmribzjvtmaxghl.supabase.co/storage/v1/object/public/images/dodsbopartner-stockholm-flyttstadning.jpg',
 
     // Blog/Guide Images
     guideFullmakt: 'https://lh3.googleusercontent.com/aida-public/AB6AXuB4i2nscgYfOiS_BLoFn0DJbBS4aOPFqIxUj8GPcUxz7a74ricXYAzSQt149pEOcg4FT4aXYd1O4OHezn4jM2tSPiAIJ1FGIxxP87AicALxh272eJyhmEEZ0o6v_J-YZ6X7rZxbjrNAKiCmqp1mbgkEZTAfJb-xz0P5CCs5hqPWoUVcd8JIz50lQkwo3ffZVeF-FCq3BFIkLHVP0xmmT_Rc36tuW2bG0yJrSPpBROH59KbBGoeIAdcZmGr3EFPVZvQX0AC0lRAuCnEJ',

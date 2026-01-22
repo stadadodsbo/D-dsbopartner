@@ -38,7 +38,7 @@ import { ImageService } from '../../services/image.service';
 
             <!-- Image inserted here as part of content -->
             <div class="mt-8 relative w-full aspect-[16/9] rounded-2xl overflow-hidden shadow-lg border border-gray-100 dark:border-gray-800">
-                 <img [ngSrc]="images.get('remediation')" fill class="object-cover" alt="Sanering och städning av bostad">
+                 <img [ngSrc]="images.get('remediation')" fill class="object-cover" alt="Sanering av dödsbo och luktsanering i lägenhet">
             </div>
           </section>
 

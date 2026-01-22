@@ -32,24 +32,24 @@ import { ImageService } from '../../services/image.service';
               Uppköpare av dödsbo i Stockholm
             </h1>
              <p class="text-lg sm:text-xl text-gray-600 dark:text-gray-300 leading-relaxed max-w-2xl">
-              Letar du efter en seriös <strong>uppköpare av dödsbon</strong>? På Dödsbopartner Stockholm AB är vi experter på <strong>dödsbo köpes</strong> i hela Stockholmsregionen. Vi vet att försäljning av dödsbo kan vara en känslomässig process, och därför erbjuder vi en smidig helhetslösning.
+              Letar du efter en seriös <strong>uppköpare av dödsbon</strong>? På Dödsbopartner Stockholm AB är vi experter på <strong>dödsbo köpes</strong> i hela Stockholmsregionen. Vi vet att <strong>försäljning av dödsbo</strong> kan vara en känslomässig process, och därför erbjuder vi en smidig helhetslösning.
             </p>
 
             <!-- Image inserted here as part of content -->
             <div class="mt-8 relative w-full aspect-[16/9] rounded-2xl overflow-hidden shadow-lg border border-gray-100 dark:border-gray-800">
-                 <img [ngSrc]="images.get('buying')" fill class="object-cover" alt="Uppköp och värdering av dödsbo i Stockholm">
+                 <img [ngSrc]="images.get('buying')" fill class="object-cover" alt="Uppköpare av dödsbon i Stockholm värderar bohag">
             </div>
           </section>
 
           <section>
              <h2 class="text-2xl font-bold text-text-main dark:text-white mb-6">Din värderingsman för dödsbo</h2>
              <p class="text-gray-600 dark:text-gray-300 mb-6 text-lg leading-relaxed">
-               Som din värderingsman för dödsbo kommer vi ut kostnadsfritt och värderar allt från möbler och konst till porslin och guld. Många väljer att sälja dödsbon privat, men genom att anlita oss som uppköpare slipper ni krånglet med auktionshus och annonsering. Vi ger er ett rättvist pris direkt och kan kvitta värdet mot kostnaden för <a routerLink="/tjanster/tomning" class="text-primary hover:underline font-medium">tömning</a> och <a routerLink="/tjanster/flyttstadning" class="text-primary hover:underline font-medium">städning</a>.
+               Som er <strong>värderingsman för dödsbo</strong> kommer vi ut kostnadsfritt och värderar allt från möbler och konst till porslin och guld. Många väljer att <strong>sälja dödsbon</strong> privat, men genom att anlita oss som <strong>uppköpare dödsbo</strong> slipper ni krånglet med auktionshus och annonsering. Vi ger er ett rättvist pris direkt och kan kvitta värdet mot kostnaden för <a routerLink="/tjanster/tomning" class="text-primary hover:underline font-medium">tömning</a> och <a routerLink="/tjanster/flyttstadning" class="text-primary hover:underline font-medium">städning</a>.
              </p>
           </section>
 
           <section>
-            <h2 class="text-2xl font-bold mb-6 text-text-main dark:text-white">Steg för steg</h2>
+            <h2 class="text-2xl font-bold mb-6 text-text-main dark:text-white">Dödsbo sökes – Så går det till</h2>
             <div class="space-y-6">
                 <div class="flex gap-4">
                     <div class="size-10 rounded-full bg-primary/10 text-primary flex items-center justify-center font-bold text-lg shrink-0">1</div>
@@ -61,15 +61,15 @@ import { ImageService } from '../../services/image.service';
                  <div class="flex gap-4">
                     <div class="size-10 rounded-full bg-primary/10 text-primary flex items-center justify-center font-bold text-lg shrink-0">2</div>
                     <div>
-                        <h3 class="font-bold text-lg">Värdering</h3>
-                        <p class="text-gray-600 dark:text-gray-400">Boka ett kostnadsfritt möte med oss. Vi går igenom bohag, möbler och konst för att ge er en rättvis offert.</p>
+                        <h3 class="font-bold text-lg">Värdering av dödsbo</h3>
+                        <p class="text-gray-600 dark:text-gray-400">Boka ett kostnadsfritt möte med oss. Vår värderingsman går igenom bohag, möbler och konst för att ge er en rättvis offert.</p>
                     </div>
                 </div>
                  <div class="flex gap-4">
                     <div class="size-10 rounded-full bg-primary/10 text-primary flex items-center justify-center font-bold text-lg shrink-0">3</div>
                     <div>
-                        <h3 class="font-bold text-lg">Försäljning & Tömning</h3>
-                        <p class="text-gray-600 dark:text-gray-400">Vi köper det som går att sälja. Resten skänks till välgörenhet eller återvinns. Ni slipper allt bärande och transporterande.</p>
+                        <h3 class="font-bold text-lg">Försäljning dödsbo & Tömning</h3>
+                        <p class="text-gray-600 dark:text-gray-400">Vi köper det som går att sälja (dödsbo köpes). Resten skänks till välgörenhet eller återvinns. Ni slipper allt bärande.</p>
                     </div>
                 </div>
             </div>
@@ -77,7 +77,7 @@ import { ImageService } from '../../services/image.service';
 
            <!-- What we buy -->
            <section>
-            <h2 class="text-2xl font-bold text-text-main dark:text-white mb-6">Vad vi letar efter</h2>
+            <h2 class="text-2xl font-bold text-text-main dark:text-white mb-6">Vad vi letar efter (Dödsbo Sökes)</h2>
             <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
                <div class="bg-gray-50 dark:bg-surface-dark p-6 rounded-xl border border-gray-100 dark:border-gray-800">
                   <div class="text-primary mb-3">
@@ -122,7 +122,7 @@ export class SellingComponent implements OnInit {
   ngOnInit() {
     this.seo.setSeoData({
       title: 'Uppköpare Dödsbo & Dödsbo Köpes | Vi köper hela hem',
-      description: 'Söker du uppköpare av dödsbon? Vi köper säljbara föremål och kvittar värdet mot tömning. Rättvis värdering av möbler och bohag. Kontakta oss.',
+      description: 'Letar du efter uppköpare av dödsbon? Vi erbjuder dödsbo köpes tjänster där vi köper säljbara föremål. Försäljning dödsbo gjort enkelt med oss.',
       slug: 'tjanster/salja-dodsbo'
     });
 
@@ -138,7 +138,7 @@ export class SellingComponent implements OnInit {
         "@type": "City",
         "name": "Stockholm"
       },
-      "description": "Vi köper upp hela eller delar av dödsbon i Stockholm. Rättvis värdering och helhetslösning med tömning."
+      "description": "Vi är uppköpare av dödsbon i Stockholm. Vi hanterar dödsbo köpes, värdering och tömning."
     });
   }
 }

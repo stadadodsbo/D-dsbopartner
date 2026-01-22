@@ -101,7 +101,7 @@ import { ImageService } from '../../services/image.service';
             <app-contact-form />
             
             <div class="mt-8 relative w-full aspect-[4/3] rounded-xl overflow-hidden shadow-md">
-                 <img [ngSrc]="images.get('buying')" fill class="object-cover" alt="Antika möbler och föremål">
+                 <img [ngSrc]="images.get('buying')" fill class="object-cover" alt="Uppköp av dödsbo i Stockholm - vi köper antika möbler och hela bohag">
             </div>
           </div>
         </div>

@@ -37,7 +37,7 @@ import { ImageService } from '../../services/image.service';
 
             <!-- Image inserted here as part of content -->
             <div class="mt-8 relative w-full aspect-[16/9] rounded-2xl overflow-hidden shadow-lg border border-gray-100 dark:border-gray-800">
-                 <img [ngSrc]="images.get('waste')" fill class="object-cover" alt="Hög med grovsopor och gamla möbler som hämtas för återvinning">
+                 <img [ngSrc]="images.get('waste')" fill class="object-cover" alt="Hämtning av grovsopor och gamla möbler för återvinning i Stockholm">
             </div>
           </section>
 

@@ -96,21 +96,21 @@ import { ImageService } from '../../services/image.service';
             </div>
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
               <div class="group relative overflow-hidden rounded-xl aspect-[4/5] bg-gray-100 dark:bg-gray-800">
-                <img alt="Antique wooden mid-century modern chair" [ngSrc]="images.get('chair')" fill class="object-cover transition-transform duration-500 group-hover:scale-105" />
+                <img alt="Teakstol och designmöbler i Stockholm - vi värderar och köper upp dödsbo" [ngSrc]="images.get('chair')" fill class="object-cover transition-transform duration-500 group-hover:scale-105" />
                 <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex flex-col justify-end p-4">
                   <p class="text-white font-bold text-lg">Skandinavisk Design</p>
                   <p class="text-white/80 text-sm">Möbler, lampor & glas</p>
                 </div>
               </div>
               <div class="group relative overflow-hidden rounded-xl aspect-[4/5] bg-gray-100 dark:bg-gray-800">
-                <img alt="Stack of vintage oil paintings" [ngSrc]="images.get('paintings')" fill class="object-cover transition-transform duration-500 group-hover:scale-105" />
+                <img alt="Oljemålningar och konstsamling - värdering av dödsbo i Stockholm" [ngSrc]="images.get('paintings')" fill class="object-cover transition-transform duration-500 group-hover:scale-105" />
                 <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex flex-col justify-end p-4">
                   <p class="text-white font-bold text-lg">Konst & Tavlor</p>
                   <p class="text-white/80 text-sm">Oljemålningar & litografier</p>
                 </div>
               </div>
               <div class="group relative overflow-hidden rounded-xl aspect-[4/5] bg-gray-100 dark:bg-gray-800">
-                <img alt="Silver cutlery and antique ceramic plates" [ngSrc]="images.get('silver')" fill class="object-cover transition-transform duration-500 group-hover:scale-105" />
+                <img alt="Matsilver och antikt porslin - vi köper guld och silver från dödsbon" [ngSrc]="images.get('silver')" fill class="object-cover transition-transform duration-500 group-hover:scale-105" />
                 <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex flex-col justify-end p-4">
                   <p class="text-white font-bold text-lg">Silver & Keramik</p>
                   <p class="text-white/80 text-sm">Matsilver & porslin</p>
@@ -228,8 +228,8 @@ export class ValuationComponent implements OnInit {
 
   ngOnInit() {
     this.seo.setSeoData({
-      title: 'Värdering av Dödsbo | Gratis Hembesök',
-      description: 'Professionell värdering av dödsbon. Vi köper upp säljbara föremål och sköter resten. Få en kostnadsfri värdering idag.',
+      title: 'Värderingsman Dödsbo Stockholm | Gratis Värdering & Hembesök',
+      description: 'Boka en erfaren värderingsman för dödsbo. Vi värderar antikviteter, konst och möbler på plats i Stockholm. Få ett prisförslag direkt.',
       slug: 'vardering'
     });
   }

@@ -24,10 +24,10 @@ import { ImageService } from '../../services/image.service';
               Vi skapar trygghet i en svår stund. Helhetslösning för tömning, flyttstädning och värdering i Stockholm med fokus på omtanke och respekt. Vi är din trygga uppköpare av dödsbo.
             </p>
             <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start pt-2">
-              <a routerLink="/tjanster/tomning" class="bg-primary hover:bg-primary-dark text-white text-base font-medium py-3 px-8 rounded-lg shadow-lg hover:shadow-xl transition-all">
+              <a routerLink="/" fragment="kontakt" class="bg-primary hover:bg-primary-dark text-white text-base font-medium py-3 px-8 rounded-lg shadow-lg hover:shadow-xl transition-all">
                 Boka hembesök
               </a>
-              <a href="#tjanster" class="bg-transparent hover:bg-white dark:hover:bg-white/5 text-text-main dark:text-white text-base font-medium py-3 px-8 rounded-lg border border-text-main/20 dark:border-white/20 hover:border-primary/50 transition-colors shadow-sm">
+              <a routerLink="/" fragment="tjanster" class="bg-transparent hover:bg-white dark:hover:bg-white/5 text-text-main dark:text-white text-base font-medium py-3 px-8 rounded-lg border border-text-main/20 dark:border-white/20 hover:border-primary/50 transition-colors shadow-sm">
                 Se våra tjänster
               </a>
             </div>

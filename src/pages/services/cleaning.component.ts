@@ -29,20 +29,20 @@ import { ImageService } from '../../services/image.service';
               Städgaranti
             </div>
             <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black text-text-main dark:text-white leading-[1.1] mb-6 tracking-tight">
-              Flyttstädning av dödsbo med garanti
+              Flyttstädning dödsbo med garanti
             </h1>
              <p class="text-lg sm:text-xl text-gray-600 dark:text-gray-300 leading-relaxed max-w-2xl">
-              Vi utför professionell <strong>flyttstädning av dödsbo</strong> med fokus på noggrannhet och respekt. Att städa ur en bostad efter en bortgång är tungt, och kraven från hyresvärdar och köpare är höga.
+              Vi utför professionell <strong>flyttstädning dödsbo</strong> med fokus på noggrannhet och respekt. Att städa ur en bostad efter en bortgång är tungt, och kraven från hyresvärdar och köpare är höga.
             </p>
 
             <!-- Image inserted here as part of content -->
             <div class="mt-8 relative w-full aspect-[16/9] rounded-2xl overflow-hidden shadow-lg border border-gray-100 dark:border-gray-800">
-                 <img [ngSrc]="images.get('cleaning')" fill class="object-cover" alt="Noggrann flyttstädning av dödsbo i Stockholm kök">
+                 <img [ngSrc]="images.get('cleaning')" fill class="object-cover" alt="Noggrann flyttstädning dödsbo och städning av lägenhet">
             </div>
           </section>
 
           <section>
-            <h2 class="text-2xl font-bold mb-4 text-text-main dark:text-white">Trygghet i varje steg</h2>
+            <h2 class="text-2xl font-bold mb-4 text-text-main dark:text-white">Trygghet med dödsbo flyttstädning</h2>
             <p class="text-gray-600 dark:text-gray-300 mb-8 text-lg leading-relaxed">
               När du anlitar oss för <strong>dödsbo flyttstädning</strong> ingår alltid vår nöjd-kund-garanti. Det innebär att vi garanterar att städningen blir godkänd vid besiktning. Vi hanterar allt från fönsterputs till rengöring av vitvaror, så att ni kan fokusera på annat. Kombinera gärna städningen med <a routerLink="/tjanster/tomning" class="text-primary hover:underline font-medium">tömning</a> för en komplett lösning.
             </p>
@@ -96,14 +96,14 @@ export class CleaningComponent implements OnInit {
   ngOnInit() {
     this.seo.setSeoData({
       title: 'Flyttstädning Dödsbo Stockholm | Garanti & RUT-avdrag',
-      description: 'Professionell dödsbo flyttstädning i Stockholm. Vi garanterar godkänd besiktning. Vi hjälper er med RUT-avdrag och grovstädning vid behov.',
+      description: 'Professionell flyttstädning dödsbo i Stockholm. Vi garanterar godkänd besiktning för dödsbo flyttstädning. Vi hjälper er med RUT-avdrag.',
       slug: 'tjanster/flyttstadning'
     });
 
     this.seo.setJsonLd({
       "@context": "https://schema.org",
       "@type": "Service",
-      "serviceType": "Flyttstädning",
+      "serviceType": "Flyttstädning dödsbo",
       "provider": {
         "@type": "LocalBusiness",
         "name": "Dödsbopartner Stockholm AB"
