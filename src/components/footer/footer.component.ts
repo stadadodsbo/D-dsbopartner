@@ -25,7 +25,7 @@ import { RouterLink } from '@angular/router';
                </div>
                <div class="flex flex-col">
                   <span class="text-text-main font-bold text-lg uppercase tracking-wide leading-none">Dödsbopartner</span>
-                  <span class="text-text-main font-medium text-[9px] uppercase tracking-wider leading-none mt-0.5">Stockholm AB</span>
+                  <span class="text-text-main font-bold text-[9px] uppercase tracking-[0.65em] leading-none mt-1 ml-px">Stockholm AB</span>
                </div>
             </div>
             

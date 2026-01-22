@@ -54,11 +54,13 @@ import { SupabaseService } from '../../services/supabase.service';
                   <path d="M50 35C50 35 48 45 55 52" stroke="currentColor" stroke-linecap="round" stroke-width="3"></path>
                 </svg>
               </div>
-              <div class="flex flex-col">
+              <div class="flex flex-col items-center">
                 <h1 class="text-text-main dark:text-white text-xl font-bold tracking-widest uppercase leading-none">
-                  Dödsbo<span class="text-primary font-normal">Partner</span>
+                  Dödsbopartner
                 </h1>
-                <span class="text-[10px] text-text-sub dark:text-gray-400 font-medium tracking-[0.2em] uppercase leading-none mt-0.5">Stockholm AB</span>
+                <span class="text-[10px] text-text-sub dark:text-gray-400 font-bold tracking-[0.7em] uppercase leading-none mt-1.5 ml-1 whitespace-nowrap">
+                  Stockholm AB
+                </span>
               </div>
             </a>
           </div>

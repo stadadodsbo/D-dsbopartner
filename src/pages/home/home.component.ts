@@ -47,8 +47,9 @@ import { ImageService } from '../../services/image.service';
           <div class="w-full lg:flex-1 relative">
             <div class="hidden lg:block absolute inset-0 bg-primary/20 blur-2xl transform translate-x-4 translate-y-4 rounded-[30%_70%_70%_30%_/_30%_30%_70%_70%] opacity-50"></div>
             
-            <div class="relative w-full aspect-[16/10] sm:aspect-video lg:aspect-[4/3] overflow-hidden
-                        lg:rounded-[54%_46%_25%_75%_/_55%_44%_56%_45%] lg:shadow-2xl">
+            <div class="relative block w-full aspect-[16/10] sm:aspect-video lg:aspect-[4/3] overflow-hidden min-h-[300px]
+                        lg:rounded-[54%_46%_25%_75%_/_55%_44%_56%_45%] lg:shadow-2xl"
+                 style="position: relative;">
               
               <div class="hidden lg:block absolute inset-0 bg-[#C69C55] opacity-10 mix-blend-overlay z-10 pointer-events-none"></div>
               
@@ -285,7 +286,7 @@ import { ImageService } from '../../services/image.service';
               <p class="text-text-sub dark:text-gray-300 mb-8 leading-relaxed font-light text-lg">
                   Att hantera ett dödsbo innebär många praktiska och juridiska frågor. Vi på Dödsbopartner Stockholm AB hjälper dig att navigera genom processen, men här är några begrepp som är bra att känna till.
               </p>
-              <div class="relative rounded-lg overflow-hidden shadow-lg aspect-video mb-6 border border-[#F0EBE5] dark:border-gray-800">
+              <div class="relative block rounded-lg overflow-hidden shadow-lg aspect-video mb-6 border border-[#F0EBE5] dark:border-gray-800 min-h-[200px]" style="position: relative;">
                 <img [ngSrc]="images.get('documents')" fill class="object-cover grayscale hover:grayscale-0 transition-all duration-700" alt="Juridiska dokument för bouppteckning och fullmakter vid dödsfall">
               </div>
             </div>
