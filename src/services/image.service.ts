@@ -11,18 +11,18 @@ export class ImageService {
 
   // Current Placeholders (Google/Unsplash)
   private readonly images = {
-    hero: 'https://images.unsplash.com/photo-1715249891485-4b8e66b584dc?q=80&w=627&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    hero: 'https://zpevjmmribzjvtmaxghl.supabase.co/storage/v1/object/public/images/dodsbo-kopes-stockholm-dodsbopartner-ab-hero.jpg',
     documents: 'https://lh3.googleusercontent.com/aida-public/AB6AXuACEZc6AtQb6lROt9ADV8xGO3KOpNnzIz-sFtuDwBRnXlKSMK64s1TZFK7NyvMgCXo97ZuDtm4f0JOshHSA733JC9PdgqGd9OCMQrILjPzY0rZZQqQsATIMW4HtlxxYcY9Fm1s5wa2URq2yCtvH_si9VxfliPtav-ZOCBrYulnzNleY5PlEVl_4r6LfysAYNAVXzjKHnEsypHO6XOlPYG1lwRZEVno0BN5StJN9UQbuwazJKVvDpR_aIzgxoECnRvQMWmjZY-ctjYdM',
     chair: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAAJxtBlCeyTOXJt0YrvWOot4vkFYLaOWpbnxwB_kjo5fx1cF7zV0ZNlJavS7_hBE-geStUHi2-2y0V4jkdibeHaZhQKyd6K7tlMKJfkyQBAu4sFPvmmfHUoQ5TxFObIS6Mg2p8xeqqUrtKnWTcvgeFZK7Vm0GDw77R9fL1Ljy04DSUXLOctwFIvkPNj-1EPUPpZcl4Q16Oducq6TI7fmm3Fl0FCy45Yoll1pVZm5eXoULT9Z4Cs1yooA73gS2aEJMHnd7SzSMQ6ghm',
     paintings: 'https://lh3.googleusercontent.com/aida-public/AB6AXuB9z4JKxeWBIyu65wShgr_vrgiitSwuaWTsDpgu_o88pxfVcocvSjRor30cSxT6r86a3w2VfKYok6SvK-_RvjFg3Oy7qhdd-bkeDpfuf5r_8Vcl2m34XguR92424SaqkiU41J08TovVpjpHXl0U9HS7llPI5w6OCoCkVlgoHJOpkealkZKcZkRvrUU2pcVTKwaE1A77ivItkjG9M0cY2IWBbBSEhaVW4Hjb-hyoW3uDRbz8axAi2LdSLULMtxBbsdG0kFOnRNH2LymZ',
     silver: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBjPcrXLkPduAY0-ylCQDs4hqu9Sn0NqzSlYCMOLZpwOey21U576E0-1hL71oklFUwqGAGvhf7m66ndPeGPCcKP3FEl8aRhkNjii2m4S3JK4Ed76cjgB5v9Kan2qskLuQkcEcBqIQyuIgx9bjz1qdIvObQ4yrkbGaXalueRzo27gXCeKkdnS5SFltU7_hzuTjQ659JRR38fpQ5wHWQLw2zg1eGqtUQVc76vjGEa8dCratChpV_uGWQlBO-bzUacP8lldhaAvJKMKWtl',
     
     // Service Specific Images
-    waste: 'https://zpevjmmribzjvtmaxghl.supabase.co/storage/v1/object/public/images/dodsbopartner-stockholm-tjanster-grovsopor.jpg',
-    emptying: 'https://zpevjmmribzjvtmaxghl.supabase.co/storage/v1/object/public/images/dodsbopartner-stockholm-flytthjalp.jpg',
-    buying: 'https://zpevjmmribzjvtmaxghl.supabase.co/storage/v1/object/public/images/dodsbopartner-stockholm-salja-dodsbo.jpg',
-    remediation: 'https://zpevjmmribzjvtmaxghl.supabase.co/storage/v1/object/public/images/dodsbopartner-stockholm-sanering.jpg',
-    cleaning: 'https://zpevjmmribzjvtmaxghl.supabase.co/storage/v1/object/public/images/dodsbopartner-stockholm-flyttstadning.jpg',
+    waste: 'https://zpevjmmribzjvtmaxghl.supabase.co/storage/v1/object/public/images/atervinning-grovsopor-dodsbo-dodsbopartner-stockholm-ab.jpg',
+    emptying: 'https://zpevjmmribzjvtmaxghl.supabase.co/storage/v1/object/public/images/tomning-dodsbo-pris-dodsbopartner-stockholm-ab.jpg',
+    buying: 'https://zpevjmmribzjvtmaxghl.supabase.co/storage/v1/object/public/images/salja-dodsbo-kopes-dodsbopartner-stockholm-ab.jpg',
+    remediation: 'https://zpevjmmribzjvtmaxghl.supabase.co/storage/v1/object/public/images/sanering-dodsbo-specialist-dodsbopartner-stockholm-ab.jpg',
+    cleaning: 'https://zpevjmmribzjvtmaxghl.supabase.co/storage/v1/object/public/images/dodsbopartner-stockholm-ab-dodsbo-flyttstadning-pris.jpg',
 
     // Blog/Guide Images
     guideFullmakt: 'https://lh3.googleusercontent.com/aida-public/AB6AXuB4i2nscgYfOiS_BLoFn0DJbBS4aOPFqIxUj8GPcUxz7a74ricXYAzSQt149pEOcg4FT4aXYd1O4OHezn4jM2tSPiAIJ1FGIxxP87AicALxh272eJyhmEEZ0o6v_J-YZ6X7rZxbjrNAKiCmqp1mbgkEZTAfJb-xz0P5CCs5hqPWoUVcd8JIz50lQkwo3ffZVeF-FCq3BFIkLHVP0xmmT_Rc36tuW2bG0yJrSPpBROH59KbBGoeIAdcZmGr3EFPVZvQX0AC0lRAuCnEJ',
